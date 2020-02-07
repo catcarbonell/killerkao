@@ -1,7 +1,8 @@
 # !!! Killer Kao !!!
 
-*Fun fact:* These emotes were derived from the infamous Japanese "Kaomojis": the predecessor to Emojis! 
-"Kao" means "face" in Japanese!
+* *Fun fact:* These emotes were derived from the infamous Japanese *"Kaomojis"*: 
+the predecessor to Emojis! 
+* "Kao" (顔 - KAH-oh -- like "cow" ) means "face" in Japanese!
 
 ## *GASP!* You have encountered a BEAR (ʕ•ᴥ• ʔ). What do you do?
 * Fight it?
@@ -41,4 +42,4 @@ This will randomy generate a number between 0-2
 * Excited to work on this application! Setting the ground rules, worked on designing wireframes. Going to start on the HTML very soon!
 
 ## Keep In Touch!
-I'm on ([@catcarbn])(https://twitter.com/catcarbn) and [Dev.to](http://dev.to/catcarbn)! Feel free to DM me at either place!
+I'm on Twitter ( [@catcarbn] )(https://twitter.com/catcarbn) and [Dev.to](http://dev.to/catcarbn)! Feel free to DM me at either place!
