@@ -12,9 +12,9 @@ the predecessor to Emojis!
 ## Gameplay:
 * Player starts game by...pressing the big red "START" button in the middle
 * Player chooses an action:
-- Strike
-- Throw
-- Block
+  - Strike
+  - Throw
+  - Block
 * Match goes on until Player and/or Bear loses all Health Points (HP)!
 
 
