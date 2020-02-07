@@ -1,5 +1,5 @@
 # !!! Killer Kao !!!
-
+## (๑و•̀ω•́)و  ʕ•ᴥ•  ʔ
 * *Fun fact:* These emotes were derived from the infamous Japanese *"Kaomojis"*: 
 the predecessor to Emojis! 
 * "Kao" (顔 - KAH-oh -- like "cow" ) means "face" in Japanese!
@@ -23,7 +23,7 @@ This will randomy generate a number between 0-2
 
 * IF the player generates a number greater than that of Bear, the player wins the round, thereby keeping their remaining Hit Points (HP).
 
-* HOWEVER, if Bear wins, the player loses one hit point!
+* HOWEVER, if Bear wins, the player loses one (or more) hit point(s)!
 
 * First player to zero HP loses!
 
