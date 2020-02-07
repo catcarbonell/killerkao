@@ -1,5 +1,5 @@
 # !!! Killer Kao !!!
-## (๑و•̀ω•́)و  ʕ•ᴥ•  ʔ
+### (๑و•̀ω•́)و < -- Fite me!) ( Rorrror? -- >  ʕ•ᴥ•  ʔ
 * *Fun fact:* These emotes were derived from the infamous Japanese *"Kaomojis"*: 
 the predecessor to Emojis! 
 * "Kao" (顔 - KAH-oh -- like "cow" ) means "face" in Japanese!
