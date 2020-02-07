@@ -40,6 +40,7 @@ This will randomy generate a number between 0-2
 
 ### 2/6/2020 -
 * Excited to work on this application! Setting the ground rules, worked on designing wireframes. Going to start on the HTML very soon!
+![A screenshot of my game's wireframes](https://i.ibb.co/p09tGvL/Screen-Shot-2020-02-06-at-10-22-47-PM.png)
 
 ## Keep In Touch!
-I'm on Twitter ( [@catcarbn] )(https://twitter.com/catcarbn) and [Dev.to](http://dev.to/catcarbn)! Feel free to DM me at either place!
+I'm on Twitter [@catcarbn](https://twitter.com/catcarbn) and [Dev.to](http://dev.to/catcarbn)! Feel free to DM me at either place!
