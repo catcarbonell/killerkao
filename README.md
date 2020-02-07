@@ -1,4 +1,7 @@
-# Killer Kao!!!
+# !!! Killer Kao !!!
+
+*Fun fact:* These emotes were derived from the infamous Japanese "Kaomojis": the predecessor to Emojis! 
+"Kao" means "face" in Japanese!
 
 ## *GASP!* You have encountered a BEAR (ʕ•ᴥ• ʔ). What do you do?
 * Fight it?
@@ -20,4 +23,22 @@ This will randomy generate a number between 0-2
 * IF the player generates a number greater than that of Bear, the player wins the round, thereby keeping their remaining Hit Points (HP).
 
 * HOWEVER, if Bear wins, the player loses one hit point!
-First player to zero HP loses!
+
+* First player to zero HP loses!
+
+## Under the Hood
+* This web browser application is made with HTML5, CSS, and vanilla JavaScript!
+* ...and &hearts;!
+* The game utilizes a Random Number Generator. Good luck!
+* The faces are stored in an object array, which is retrieved via document.eventListeners!
+
+## Want to modify this app? Add a kaomoji? 
+* Feel free to fork this repo!
+
+## Updates:
+
+### 2/6/2020 -
+* Excited to work on this application! Setting the ground rules, worked on designing wireframes. Going to start on the HTML very soon!
+
+## Keep In Touch!
+I'm on ([@catcarbn])(https://twitter.com/catcarbn) and [Dev.to](http://dev.to/catcarbn)! Feel free to DM me at either place!
