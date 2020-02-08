@@ -36,6 +36,15 @@ h1 {
     font-family: "Bowlby One SC", cursive;
 }
 
+button {
+    font-size: 18px;
+    border: solid #333 2px;
+    border-radius:5px;
+
+    padding: 5px 20px;
+}
+
+
 /* <MAIN> */
 
 main {
@@ -59,26 +68,54 @@ text-align: center;
 }
 
 
-button {
-    font-size: 18px;
-    border: solid #333 2px;
-    border-radius:5px;
-}
-
 /* - <BUTTON> #START </BUTTON> -*/
 
 #start {
     font-family: "Bowlby One SC", cursive;
     font-size: 1.5em;
     color: #fff;
+
     border: solid #333 2px;
     background-color: #D0021B;
 
+    margin: 20px;
+}
+
+#start:hover {
+    border-color: #e26776;
+    background-color: #de4d5f;
+
+}
+
+/* - <BUTTON> ATK-BTN </BUTTON> - */
+.atk-btn {
+    margin: 0 5px 0 5px;
 }
 
 /* - <BUTTON> #STRIKE </BUTTON> -*/
+#strike:hover {
+    background-color: #7ED321;
+    border: 2px solid #7ED321;
+    color: #fff;
+
+    transition: ease 0.1s;
+}
 /* - <BUTTON> #THROW </BUTTON> -*/
+#throw:hover {
+    background-color: #F5A623;
+    border: 2px solid #F5A623;
+    color: #fff;
+
+    transition: ease 0.1s;
+}
 /* - <BUTTON> #BLOCK </BUTTON> -*/
+#block:hover {
+    background-color: #4A90E2;
+    border: 2px solid #4A90E2;
+    color: #fff;
+
+    transition: ease 0.1s;
+}
 
 
 
@@ -113,9 +150,6 @@ button {
 #bear-hp {
     color: antiquewhite;
 }
-
-
-
 
 
 /* <DIV> - #ARENA - </DIV> */
