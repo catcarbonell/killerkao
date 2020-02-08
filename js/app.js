@@ -1,5 +1,7 @@
 console.log("ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵　しʕ•ᴥ•し  ʔ");
 
+/* FACE LIBRARY */
+// Player
 const playerKao = [
     { /* Neutral */
         id: "player-start",
@@ -51,8 +53,7 @@ const playerKao = [
     }
 ]
 
-//console.log(playerKao);
-
+// Bear
 const bearKao = [
     { /* Neutral */
         id: "bear-start",
@@ -104,13 +105,28 @@ const bearKao = [
     }
 ]
 
-//console.log(bearKao);
-
 
 /* ELEMENT CALLS */
-const startBtn = document.getElementById("start");
+// Generic sections
 const atkMenu = document.getElementById("atk-menu");
 const hpBars = document.getElementById("hp-container-section");
+const arenaDiv = document.getElementById("arena-section");
+const resetBanner = document.getElementById("reset");
+
+// Buttons
+const strikeBtn = document.getElementById("strike");
+const throwBtn = document.getElementById("throw");
+const blockBtn = document.getElementById("block");
+const startBtn = document.getElementById("start");
+
+// Player Elements
+const playerBodySpan = document.getElementById("player-body");
+const playerHpSpan = document.getElementById("player-hp");
+
+// Bear Elements
+const bearBodySpan = document.getElementById("bear-body");
+const bearHpSpan = document.getElementById("bear-hp");
+
 
 /* GAME INIT */
 // Start button gets clicked - event listener
@@ -123,4 +139,12 @@ startBtn.addEventListener("click", function(event){
     hpBars.classList.add('animated', 'slideInDown' )
     hpBars.style.display = "flex";
 });
+ 
+
+
+/* GAME LOGIC */
+// When button is pressed, an action happens:
+    // STRIKE 1 > THROW 2
+    // THROW 2 > BLOCK 0
+    // BLOCK 0 > STRIKE 1
 
