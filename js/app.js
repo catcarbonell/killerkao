@@ -106,14 +106,21 @@ const bearKao = [
 
 //console.log(bearKao);
 
+
+/* ELEMENT CALLS */
+const startBtn = document.getElementById("start");
+const atkMenu = document.getElementById("atk-menu");
+const hpBars = document.getElementById("hp-container-section");
+
 /* GAME INIT */
 // Start button gets clicked - event listener
 // Disappears - append css visibility: none?
-
-const startBtn = document.getElementById("start");
-const atkMenu = document.querySelector('.atk-btn');
 startBtn.addEventListener("click", function(event){
-    console.log("hello world!");
+    startBtn.classList.add('animated', 'fadeOutUp')
     startBtn.style.display = "none";
-})
+    atkMenu.classList.add('animated', 'slideInUp')
+    atkMenu.style.display = "initial";
+    hpBars.classList.add('animated', 'slideInDown' )
+    hpBars.style.display = "flex";
+});
 
