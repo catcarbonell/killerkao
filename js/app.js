@@ -51,7 +51,7 @@ const playerKao = [
     }
 ]
 
-console.log(playerKao);
+//console.log(playerKao);
 
 const bearKao = [
     { /* Neutral */
@@ -104,4 +104,16 @@ const bearKao = [
     }
 ]
 
-console.log(bearKao);
+//console.log(bearKao);
+
+/* GAME INIT */
+// Start button gets clicked - event listener
+// Disappears - append css visibility: none?
+
+const startBtn = document.getElementById("start");
+const atkMenu = document.querySelector('.atk-btn');
+startBtn.addEventListener("click", function(event){
+    console.log("hello world!");
+    startBtn.style.display = "none";
+})
+
