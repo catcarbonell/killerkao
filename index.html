@@ -10,14 +10,16 @@
     <script defer src="js/app.js"></script>
 </head>
 <body>
+    
+    <header class="win-lose" id="reset">
+        <!-- WIN/LOSE/DRAW MESSAGE/RESET BUTTON-->
+        <h2>DOUBLE KO!</h2>
+        <p>Wow. Good job. Click here to play again!</p>
+    </header>
 
     <main>
         <header id="title">
             <h1>Killer Kao</h1>
-        </header>
-    
-        <header class="win-lose" id="reset">
-            <h2>HIDE THIS</h2>
         </header>
 
         <!-- HP CONTAINERS -->
@@ -26,11 +28,13 @@
 
             <!-- PLAYER HP -->
             <div class="hp-container" id="player-hp-container"> 
+                <p class="names">You</p>
                 <span>HP:</span><span class="hp-bar" id="player-hp">|||||||||||</span>
             </div>
 
             <!-- BEAR HP -->
             <div class="hp-container" id="bear-hp-container"> 
+                <p class="names">Bear</p>
                 <span>HP:</span><span class="hp-bar" id="bear-hp">|||||||||||</span>
             </div>
         </div>

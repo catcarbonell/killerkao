@@ -45,11 +45,10 @@ button {
 }
 
 
+
 /* <MAIN> */
 
 main {
-    background-color: #ccc;
-
     min-width: 450px;
     max-width: 1200px;
 
@@ -63,9 +62,22 @@ main {
 
 #title { /* BEFORE */
 font-size: 3em;
-background-color: aqua;
 text-align: center;
 }
+
+/* WIN-LOSE-DRAW/RESET BANNER*/
+.win-lose {
+    background-color: rgba(245, 166, 35, 0.9);
+    padding: 20px;
+    position: absolute;
+    top: 10%;
+    z-index: 9;
+}
+.win-lose h2 {
+    font-family: "Bowlby One SC", cursive;
+    font-size: 40px;
+}
+
 
 
 /* - <BUTTON> #START </BUTTON> -*/
@@ -90,6 +102,7 @@ text-align: center;
 /* - <BUTTON> ATK-BTN </BUTTON> - */
 .atk-btn {
     margin: 0 5px 0 5px;
+    background-color: #fff;
 }
 
 /* - <BUTTON> #STRIKE </BUTTON> -*/
@@ -124,39 +137,40 @@ text-align: center;
 /* <DIV><SPAN> - HP-CONTAINER + HP-BARS - </SPAN></DIV> */
 
 #hp-container-section{
-    background-color: antiquewhite;
     width: 400px;
     font-size: 30px;
     display: flex;
     align-content: row;
+    color: #333;
 }
 
 #player-hp-container {
     width: 200px;
-    background-color: crimson;
-
 }
 
 #player-hp {
-    color: antiquewhite;
+    color: #333;
 }
 
 #bear-hp-container{
     width: 200px;
-    background-color: royalblue;
     text-align: right;
 }
 
 #bear-hp {
-    color: antiquewhite;
+    color: #333;
 }
-
+.names {
+    font-size: 15px;
+}
 
 /* <DIV> - #ARENA - </DIV> */
 
 #arena-section {
-    background-color: chartreuse;
     width: 400px;
+    margin: 50px;
+    color: #333;
+
     display: flex;
     flex-flow: row nowrap;
 }
@@ -168,13 +182,6 @@ text-align: center;
     width: 500px;
 }
 
-/* PLAYER-CONTAINER (๑و•̀ω•́)و */
-
-#player-body {
-    background-color: crimson;
-    color: #fff;
-
-}
 
 /* BEAR-CONTAINER ʕ•ᴥ•  ʔ */
 #bear {
@@ -182,8 +189,7 @@ text-align: center;
 }
 
 #bear-body {
-    background-color: royalblue;
-    color: #fff;
+    color: #333;
     font-size: 50px;
 }
 
