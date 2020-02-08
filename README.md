@@ -10,8 +10,8 @@ the predecessor to Emojis!
 * Block its hits?
 
 ## Gameplay:
-* Player starts game by...pressing the big red "START" button in the middle
-* Player chooses an action:
+* Player starts game by pressing the big red "START" button in the middle
+* Player chooses an action from the buttons below:
   - Strike
   - Throw
   - Block

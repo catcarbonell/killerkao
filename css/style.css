@@ -1,4 +1,4 @@
-/* KILLER KAO STYLEZ ʕノ•ᴥ•ʔノ  ┻━┻  ︵ \ ʕ•ᴥ•\  ʔ */
+/* {{{ KILLER KAO STYLE.CSS }}} ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵ \ ʕ•ᴥ•\  ʔ */
 
 /* RESET */
 *,
@@ -16,42 +16,111 @@ fieldset{border-width:0; padding:0; margin:0;}
 
 
 /* GLOBAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body { 
     font-family: Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
 }
 
-/* <MAIN> */
-main {
-   width: 800px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-around;
-}
-
-/* HEADERS */
 h1 {
     font-family: "Bowlby One SC", cursive;
 }
 
-/* #ARENA */
-#arena {
-    display: flex;
-    flex-direction: row;
+/* <MAIN> */
+main {
+    background-color: #ccc;
+    width: 800px;
+
+
 }
 
-/* .CHARACTER */
-.character {
-    max-width: 300px;
-    min-width: 100px;
-    /*how do you make this */
-    position: justify;
-    font-size: 40px;
-    margin: 50px;
-    padding: 10px;
+/* <HEADER> */
+
+#title { /* BEFORE */
+font-size: 4em;
 }
+
+
+button {
+    font-size: 18px;
+    border: solid #333 2px;
+    border-radius:5px;
+}
+
+/* - <BUTTON> #START </BUTTON> -*/
+
+#start {
+    font-family: "Bowlby One SC", cursive;
+    font-size: 1.5em;
+    color: #fff;
+    border: solid #333 2px;
+    background-color: #D0021B;
+
+}
+
+/* - <BUTTON> #STRIKE </BUTTON> -*/
+/* - <BUTTON> #THROW </BUTTON> -*/
+/* - <BUTTON> #BLOCK </BUTTON> -*/
+
+/* <DIV> - #ARENA - </DIV> */
+
+#arena-section {
+    background-color: chartreuse;
+    width: 400px;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+/* <DIV> - .CHARACTER - </DIV> */
+.character {
+    font-size: 40px;
+}
+
+#player-body {
+    background-color: crimson;
+    color: #fff;
+}
+
+#bear-body{
+    background-color: royalblue;
+    color: #fff;
+
+}
+
+
+
+/* <DIV><SPAN> - HP-CONTAINER + HP-BARS - </SPAN></DIV> */
+
+#hp-container-section{
+    background-color: antiquewhite;
+    width: 400px;
+    font-size: 30px;
+    display: flex;
+    align-content: row;
+}
+
+#player-hp-container {
+    width: 200px;
+    background-color: crimson;
+
+}
+
+#player-hp {
+    color: antiquewhite;
+}
+
+#bear-hp-container{
+    width: 200px;
+    background-color: royalblue;
+    text-align: right;
+}
+
+#bear-hp {
+    color: antiquewhite;
+}
+
+
 

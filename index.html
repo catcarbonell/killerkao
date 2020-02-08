@@ -19,13 +19,38 @@
         <header class="win-lose" id="reset">
             <h2>HIDE THIS</h2>
         </header>
-    
-        <div id="arena">
-            <span id="player" class="character">(๑و•̀ω•́)و</span> 
-            <p> vs </p>
-            <span id="bear" class="character">ʕ•ᴥ•  ʔ</span>
+
+        <!-- HP CONTAINERS -->
+
+        <div id="hp-container-section">
+
+            <!-- PLAYER HP -->
+            <div class="hp-container" id="player-hp-container"> 
+                <span>HP:</span><span class="hp-bar" id="player-hp">|||||||||||</span>
+            </div>
+
+            <!-- BEAR HP -->
+            <div class="hp-container" id="bear-hp-container"> 
+                <span>HP:</span><span class="hp-bar" id="bear-hp">|||||||||||</span>
+            </div>
         </div>
 
+        <div id="arena-section">
+
+            <!-- PLAYER CONTAINER -->
+            <div id="player" class="character"> 
+                <span id="player-body">(๑و•̀ω•́)و</span> 
+            </div>
+
+            <!-- BEAR CONTAINER -->
+            <div id="bear" class="character">
+                <span id="bear-body"> (๑و•̀ω•́)و <!--ʕ•ᴥ•  ʔ--></span>
+            </div>
+
+        </div>
+
+
+        <button id="start">Start!</button>
         <nav>
             <button id="strike" class="atk">Strike</button>
             <button id="throw" class="atk">Throw</button>
