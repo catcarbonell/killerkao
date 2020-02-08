@@ -21,8 +21,15 @@ fieldset{border-width:0; padding:0; margin:0;}
     padding: 0;
     box-sizing: border-box;
 }
+
 body { 
+    height: 100vh;
     font-family: Helvetica, sans-serif;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
@@ -32,15 +39,16 @@ h1 {
 /* <MAIN> */
 main {
     background-color: #ccc;
-    width: 800px;
-
-
+    min-width: 500px;
+    max-width: 800px;
 }
 
 /* <HEADER> */
 
 #title { /* BEFORE */
 font-size: 4em;
+background-color: aqua;
+text-align: center;
 }
 
 
@@ -87,7 +95,6 @@ button {
 #bear-body{
     background-color: royalblue;
     color: #fff;
-
 }
 
 
