@@ -155,8 +155,12 @@ startBtn.addEventListener("click", function(event){
 
     event.stopPropagation();
 });
- 
 
+/* RESET */
+resetBanner.addEventListener("click", function(event) {
+    document.location.reload(true)
+    event.stopPropagation();    
+});
 
 // ======================================================== //
 
@@ -215,8 +219,14 @@ function healthBarDisplay(user) {
 
 function healthCheck() {
     if(playerHpCount <= 0 && bearHpCount <= 0){
+        resetBanner.classList.add('animated', 'slideInDown')
+        resetBanner.style.display = "initial";
         playerBodySpan.innerHTML = playerKao[6].face;
+        playerBodySpan.style.color= "#ccc";
         bearBodySpan.innerHTML = bearKao[6].face;
+        bearBodySpan.style.color= "#ccc";
+        atkMenu.classList.add('animated', 'fadeOutDown')
+        atkMenu.style.display = "none";
     } else if(bearHpCount <= 0) {
         bearBodySpan.innerHTML = bearKao[6].face;
     } else if(playerHpCount <= 0) {
