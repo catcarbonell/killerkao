@@ -170,9 +170,14 @@ text-align: center;
 #bear-hp {
     color: #333;
 }
+
+#bear-hp-label span{
+    position: fixed;
+}
 .names {
     font-size: 15px;
 }
+
 
 /* <DIV> - #ARENA - </DIV> */
 
@@ -191,7 +196,11 @@ text-align: center;
     font-size: 40px;
     width: 500px;
 }
-
+/* PLAYER-CONTAINER */
+#player-body {
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
 
 /* BEAR-CONTAINER ʕ•ᴥ•  ʔ */
 #bear {

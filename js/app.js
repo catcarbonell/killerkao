@@ -1,6 +1,7 @@
 console.log("ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵　しʕ•ᴥ•し  ʔ");
 
 /* FACE LIBRARY */
+
 // Player
 const playerKao = [
     { /* Neutral */
@@ -106,8 +107,14 @@ const bearKao = [
 ]
 
 
+
+// ======================================================== //
+
+
+
 /* ELEMENT CALLS */
 // Generic sections
+const title = document.getElementById("title");
 const atkMenu = document.getElementById("atk-menu");
 const hpBars = document.getElementById("hp-container-section");
 const arenaDiv = document.getElementById("arena-section");
@@ -123,9 +130,14 @@ const startBtn = document.getElementById("start");
 const playerBodySpan = document.getElementById("player-body");
 const playerHpSpan = document.getElementById("player-hp");
 
-// Bear Elements
+// Bear/CPU Elements
 const bearBodySpan = document.getElementById("bear-body");
 const bearHpSpan = document.getElementById("bear-hp");
+
+
+
+// ======================================================== //
+
 
 
 /* GAME INIT */
@@ -138,13 +150,59 @@ startBtn.addEventListener("click", function(event){
     atkMenu.style.display = "initial";
     hpBars.classList.add('animated', 'slideInDown' )
     hpBars.style.display = "flex";
+    arenaDiv.classList.add('animated', 'slideInDown')
+    //title.classList.add('animated', 'slideInDown')
+
+    event.stopPropagation();
 });
  
 
 
+// ======================================================== //
+
+
+
+/* HP DISPLAY */
+// Loop through an array?
+// Numbers based?
+    // if i < count; i ++ ; every i can be a health bar count -> "|"
+
+const playerHpCount = 10;
+const playerHpBars =[
+  "|","|","|","|","|","|","|","|","|","|"
+]
+
+const bearHpCount = 10;
+const bearHpBars = [
+    "|","|","|","|","|","|","|","|","|","|"
+]
+
+function healthBarDisplay(user) {
+    let bars = [];
+    for(let i=0; i < user.length; i++){
+        bars.push(user[i]);
+    }
+    return bars.join('');
+}
+
+playerHpSpan.innerHTML = healthBarDisplay(playerHpBars);
+bearHpSpan.innerHTML = healthBarDisplay(bearHpBars);
+// ======================================================== //
+
+
+
 /* GAME LOGIC */
 // When button is pressed, an action happens:
-    // STRIKE 1 > THROW 2
-    // THROW 2 > BLOCK 0
-    // BLOCK 0 > STRIKE 1
+    // STRIKE 1 > THROW 2 
+    // THROW 2 > BLOCK 0 
+    // BLOCK 0 > STRIKE 1 
+
+// If Player beats Bear, Bear's HP is decremented by 1
+// If Bear beats Player, Player's HP is decremented by 1 or 2
+// If both throw the same attack, no one loses HP
+// If one blocks, no one loses HP
+// Assign values to attacks?
+    // Honestly, all the buttons do the same thing. lol.
+
+
 
