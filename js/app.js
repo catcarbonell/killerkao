@@ -47,7 +47,7 @@ const playerKao = [
         value: 0
     },
     { /* Win */
-        id: "bear-win",
+        id: "player-win",
         status: "win",
         face: "( •̀ᄇ• ́)ﻭ✧",
         value: 0
@@ -108,6 +108,7 @@ const bearKao = [
 
 
 // ======================================================== //
+
 /* OUTCOME LIBRARY */
 const outcome = [
     { //0
@@ -127,9 +128,7 @@ const outcome = [
     }
 ]
 
-
 // ======================================================== //
-
 
 
 /* ELEMENT CALLS */
@@ -203,46 +202,54 @@ let bearHpCount = 10;
    // "|","|","|","|","|","|","|","|","|","|"
 //]
 
-/*
-let bars = [];
-function healthBarDisplay(user) {
-   
-    for(let i=0; i < user.length; i++){
-        bars.push(user[i]);
-    }
-    return bars.join('');
-}*/
-
-
-
-
-
 
 // ======================================================== //
 
 
-
-
-
-
 /* GAME LOGIC */
-// When button is pressed, an action happens:
+
+function fight(playerAtk){
+    // Need event listener for buttons
+    // NO UI LOGIC HERE.
+    //generates a number between 0 - 2
+    let bearAtk = Math.floor(Math.random() * 3);
+    console.log(`Bear ${bearAtk}`);
+    console.log(`Player ${playerAtk}`);
+
+    // ATTACK CODES & LOGIC:
     // STRIKE 1 > THROW 2 
     // THROW 2 > BLOCK 0 
     // BLOCK 0 > STRIKE 1 
-
-// If Player beats Bear, Bear's HP is decremented by 1
-// If Bear beats Player, Player's HP is decremented by 1
-// If both throw the same attack, no one loses HP
-// if( atk === atk ){}
-// If one blocks, no one loses HP
-// Assign values to attacks?
-    // Honestly, all the buttons do the same thing. lol.
-
-function randomNum(){
-    let randoNum = Math.floor(Math.random());
     
+    if (playerAtk === 0 && bearAtk === 1){
+        // if Player BLOCKS and Bear STRIKES {
+        return "No HP Lost - block"
+    } else if (playerAtk === 0 && bearAtk === 2){
+        // if Player BLOCKS && Bear THROWS
+        return "Player LOSES 1 HP"
+    } else if (playerAtk === 1 && bearAtk === 0){
+        // if Player STRIKES and bear BLOCKS
+        return "No HP Lost - block"
+    } else if (playerAtk === 1 && bearAtk === 2){
+        // if Player STRIKES and Bear THROWS
+        return "Bear LOSES 1 HP"
+    } else if (playerAtk === 2 && bearAtk === 1) {
+        // if Player THROWS and Bear STRIKES
+        return "Player LOSES 1 HP"
+    } else if (playerAtk === 2 && bearAtk === 0){
+        // if Player THROWS and Bear BLOCKS
+        return "Bear LOSES 1 HP"
+    } else if (playerAtk === bearAtk){
+        // same atk
+       return "No HP lost - same strike"
+    } 
 }
+
+
+
+let randoAtk= Math.floor(Math.random() * 3);
+
+console.log(fight(randoAtk));
 
 
 function healthCheck() {
@@ -313,4 +320,4 @@ strikeBtn.addEventListener("click", function(event){
 
 /* HP BAR DISPLAY */
 playerHpSpan.innerHTML = playerHpCount;
-bearHpSpan.innerHTML = bearHpCount;
+bearHpSpan.innerHTML = bearHpCount
