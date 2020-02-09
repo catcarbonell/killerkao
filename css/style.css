@@ -65,16 +65,16 @@ font-size: 3em;
 text-align: center;
 }
 
-/* WIN-LOSE-DRAW/RESET BANNER*/
-.win-lose {
-    background-color: rgba(245, 166, 35, 0.9);
+/* OUTCOME BANNER*/
+.outcome {
     padding: 20px;
     position: absolute;
     top: 10%;
     z-index: 9;
+    text-align: center;
     display: none;
 }
-.win-lose h2 {
+.outcome h2 {
     font-family: "Bowlby One SC", cursive;
     font-size: 40px;
 }

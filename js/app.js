@@ -56,56 +56,76 @@ const playerKao = [
 
 // Bear
 const bearKao = [
-    { /* Neutral */
+    { /* 0 Neutral */
         id: "bear-start",
         status: "neutral",
         face: "ʕ•ᴥ•  ʔ",
         value: 0
     }, 
-    { /* Hit-damage */
+    { /* 1 Hit-damage */
         id: "bear-hit-dmg",
         status: "hit-dmg",
         face: "ʕథᴥథʔ",
         value: 1
     },
-    { /* Throw-damage */
+    { /* 2 Throw-damage */
         id: "bear-throw-dmg",
         status: "throw-dmg",
         face: "ʕ.□ . ʔ",
         value: 2
     },
-    { /* Block */
+    { /* 3 Block */
         id: "bear-block",
         status: "block",
         face: "||ʕノ)ᴥ(ヾʔ",
         value: 0
     },
-    { /* Strike */
+    { /* 4 Strike */
         id: "bear-strike",
         status: "strike-atk",
         face: "しʕ•ᴥ•し  ʔ",
         value: 1
     },
-    { /* Throw */
+    { /* 5 Throw */
         id: "bear-throw",
         status: "throw-atk",
         face: "ミしʕ•ᴥ•し  ʔ",
         value: 2
     },
-    { /* Defeat */
+    { /* 6 Defeat */
         id: "bear-defeat",
         status: "defeat",
         face: "ʕ×ᴥ ×  ʔ",
         value: 0
     },
-    { /* Win */
+    { /* 7 Win */
         id: "bear-win",
         status: "win",
-        face: "ᕦʕ☯ ᴥ ☯ ʔᕤ",
+        face: "ᕦʕ☯ ᴥ ☯ʔ",
         value: 0
     }
 ]
 
+
+// ======================================================== //
+/* OUTCOME LIBRARY */
+const outcome = [
+    { //0
+        state: "double-ko",
+        bgcolor: "rgba(245, 166, 35, 0.9)",
+        headline: "<h2>DOUBLE KO!</h2> <p>Wow. Good job. Click here to play again!</p>"
+    },
+    { //1
+        state: "win",
+        bgcolor: "rgba(184, 233, 134, 0.9)",
+        headline: "<h2>Yay! You win!</h2> <p>Click here to play again!<p>"
+    },
+    { //2
+        state: "lose",
+        bgcolor: "rgba(248, 178, 187, 0.9)",
+        headline: "<h2>Aww. You lost. RIP.</h2> <p>Click here to exact vengeance!</p>"
+    }
+]
 
 
 // ======================================================== //
@@ -127,10 +147,12 @@ const blockBtn = document.getElementById("block");
 const startBtn = document.getElementById("start");
 
 // Player Elements
+const playerBodyDiv = document.getElementById("player");
 const playerBodySpan = document.getElementById("player-body");
 const playerHpSpan = document.getElementById("player-hp");
 
 // Bear/CPU Elements
+const bearBodyDiv = document.getElementById("bear");
 const bearBodySpan = document.getElementById("bear-body");
 const bearHpSpan = document.getElementById("bear-hp");
 
@@ -210,27 +232,67 @@ function healthBarDisplay(user) {
     // BLOCK 0 > STRIKE 1 
 
 // If Player beats Bear, Bear's HP is decremented by 1
-// If Bear beats Player, Player's HP is decremented by 1 or 2
+// If Bear beats Player, Player's HP is decremented by 1
 // If both throw the same attack, no one loses HP
+// if( atk === atk ){}
 // If one blocks, no one loses HP
 // Assign values to attacks?
     // Honestly, all the buttons do the same thing. lol.
 
+function randomNum(){
+    let randoNum = Math.floor(Math.random());
+    
+}
+
 
 function healthCheck() {
     if(playerHpCount <= 0 && bearHpCount <= 0){
+        // Double KO
         resetBanner.classList.add('animated', 'slideInDown')
         resetBanner.style.display = "initial";
+        resetBanner.style.background = outcome[0].bgcolor;
+        resetBanner.innerHTML = outcome[0].headline
+
+        atkMenu.classList.add('animated', 'slideOutDown')
+        atkMenu.style.display = "none"
+
         playerBodySpan.innerHTML = playerKao[6].face;
         playerBodySpan.style.color= "#ccc";
+
         bearBodySpan.innerHTML = bearKao[6].face;
         bearBodySpan.style.color= "#ccc";
-        atkMenu.classList.add('animated', 'fadeOutDown')
-        atkMenu.style.display = "none";
+
     } else if(bearHpCount <= 0) {
+        // Player Win
+        resetBanner.classList.add('animated', 'slideInDown')
+        resetBanner.style.display = "initial";
+        resetBanner.style.background = outcome[1].bgcolor;
+        resetBanner.innerHTML = outcome[1].headline
+
+        atkMenu.classList.add('animated', 'slideOutDown')
+        atkMenu.style.display = "none"
+
         bearBodySpan.innerHTML = bearKao[6].face;
+        bearBodySpan.style.color= "#ccc";
+
     } else if(playerHpCount <= 0) {
+        // Player Lose
+        resetBanner.classList.add('animated', 'slideInDown')
+        resetBanner.style.display = "initial";
+        resetBanner.style.background = outcome[2].bgcolor;
+        resetBanner.innerHTML = outcome[2].headline
+
+        atkMenu.classList.add('animated', 'slideOutDown')
+        atkMenu.style.display = "none"
+
         playerBodySpan.innerHTML = playerKao[6].face;
+        playerBodyDiv.classList.add('animated', 'hinge')
+        playerBodySpan.style.color= "#ccc";
+
+        bearBodySpan.innerHTML = bearKao[7].face;
+        bearBodyDiv.classList.add('animated', 'bounce')
+        bearBodySpan.style.fontSize = "35px"
+
     } else {
         playerBodySpan.innerHTML = playerKao[0].face;
         bearBodySpan.innerHTML = bearKao[0].face;
@@ -242,7 +304,7 @@ strikeBtn.addEventListener("click", function(event){
     playerHpSpan.innerHTML = playerHpBars.pop();*/
     console.log("pop pop pop")
     healthCheck();
-    bearHpSpan.innerHTML = bearHpCount--;
+    //bearHpSpan.innerHTML = bearHpCount--;
     playerHpSpan.innerHTML = playerHpCount--;
 });
 
