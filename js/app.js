@@ -167,27 +167,35 @@ startBtn.addEventListener("click", function(event){
 // Numbers based?
     // if i < count; i ++ ; every i can be a health bar count -> "|"
 
-const playerHpCount = 10;
-const playerHpBars =[
-  "|","|","|","|","|","|","|","|","|","|"
-]
+let playerHpCount = 10;
+//let playerHpBars =[
+ // "|","|","|","|","|","|","|","|","|","|"
+//]
 
-const bearHpCount = 10;
-const bearHpBars = [
-    "|","|","|","|","|","|","|","|","|","|"
-]
+let bearHpCount = 10;
+//let bearHpBars = [
+   // "|","|","|","|","|","|","|","|","|","|"
+//]
 
+/*
+let bars = [];
 function healthBarDisplay(user) {
-    let bars = [];
+   
     for(let i=0; i < user.length; i++){
         bars.push(user[i]);
     }
     return bars.join('');
-}
+}*/
 
-playerHpSpan.innerHTML = healthBarDisplay(playerHpBars);
-bearHpSpan.innerHTML = healthBarDisplay(bearHpBars);
+
+
+
+
+
 // ======================================================== //
+
+
+
 
 
 
@@ -205,4 +213,32 @@ bearHpSpan.innerHTML = healthBarDisplay(bearHpBars);
     // Honestly, all the buttons do the same thing. lol.
 
 
+function healthCheck() {
+    if(playerHpCount <= 0 && bearHpCount <= 0){
+        playerBodySpan.innerHTML = playerKao[6].face;
+        bearBodySpan.innerHTML = bearKao[6].face;
+    } else if(bearHpCount <= 0) {
+        bearBodySpan.innerHTML = bearKao[6].face;
+    } else if(playerHpCount <= 0) {
+        playerBodySpan.innerHTML = playerKao[6].face;
+    } else {
+        playerBodySpan.innerHTML = playerKao[0].face;
+        bearBodySpan.innerHTML = bearKao[0].face;
+    }
+}    
 
+strikeBtn.addEventListener("click", function(event){
+/*   
+    playerHpSpan.innerHTML = playerHpBars.pop();*/
+    console.log("pop pop pop")
+    healthCheck();
+    bearHpSpan.innerHTML = bearHpCount--;
+    playerHpSpan.innerHTML = playerHpCount--;
+});
+
+
+
+
+/* HP BAR DISPLAY */
+playerHpSpan.innerHTML = playerHpCount;
+bearHpSpan.innerHTML = bearHpCount;
