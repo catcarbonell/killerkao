@@ -8,49 +8,49 @@ const playerKao = [
         id: "player-start",
         status: "neutral",
         face: "(๑و•̀ω•́)و",
-        value: 0
+        color: "#333"
     }, 
     { /* 1 Strike-damage */
         id: "player-hit-dmg",
         status: "hit-dmg",
         face: "໒(⁄›˅̭‹∖)७",
-        value: 1
+        color: "#D0021B"
     },
     { /* 2 Throw-damage */
         id: "player-throw-dmg",
         status: "throw-dmg",
         face: "╭ (o^o#)ᕗ",
-        value: 2
+        color: "#D0021B"
     },
     { /* 3 Block */
         id: "player-block",
         status: "block",
         face: "(`へ´*)ノ||",
-        value: 0
+        color: "#4A90E2"
     },
     { /* 4 Strike */
         id: "player-strike",
         status: "strike-atk",
         face: "(○ ｀ｰ´)○☆",
-        value: 1
+        color: "#7ED321"
     },
     { /* 5 Throw */
         id: "player-throw",
         status: "throw-atk",
         face: "(┛ಠДಠ)┛ミ ",
-        value: 2
+        color: "#F5A623"
     },
     { /* 6 Defeat */
         id: "player-defeat",
         status: "defeat",
         face: "(。□°）",
-        value: 0
+        color: "#ccc"
     },
     { /* 7 Win */
         id: "player-win",
         status: "win",
         face: "( •̀ᄇ• ́)ﻭ✧",
-        value: 0
+        color: "#333"
     }
 ]
 
@@ -60,49 +60,49 @@ const bearKao = [
         id: "bear-start",
         status: "neutral",
         face: "ʕ•ᴥ•  ʔ",
-        value: 0
+        color: "#333"
     }, 
     { /* 1 Strike-damage */
         id: "bear-hit-dmg",
         status: "hit-dmg",
         face: "ʕథᴥథʔ",
-        value: 1
+        color: "#D0021B"
     },
     { /* 2 Throw-damage */
         id: "bear-throw-dmg",
         status: "throw-dmg",
         face: "ʕ.□ . ʔ",
-        value: 2
+        color: "#D0021B"
     },
     { /* 3 Block */
         id: "bear-block",
         status: "block",
         face: "||ʕノ)ᴥ(ヾʔ",
-        value: 0
+        color: "#4A90E2"
     },
     { /* 4 Strike */
         id: "bear-strike",
         status: "strike-atk",
         face: "しʕ•ᴥ•し  ʔ",
-        value: 1
+        color: "#7ED321"
     },
     { /* 5 Throw */
         id: "bear-throw",
         status: "throw-atk",
         face: "ミしʕ•ᴥ•し  ʔ",
-        value: 2
+        color: "#F5A623"
     },
     { /* 6 Defeat */
         id: "bear-defeat",
         status: "defeat",
         face: "ʕ×ᴥ ×  ʔ",
-        value: 0
+        color: "#ccc"
     },
     { /* 7 Win */
         id: "bear-win",
         status: "win",
         face: "ᕦʕ☯ ᴥ ☯ʔ",
-        value: 0
+        color: "#333"
     }
 ]
 
@@ -124,7 +124,7 @@ const outcome = [
     { //2
         state: "lose",
         bgcolor: "rgba(248, 178, 187, 0.9)",
-        headline: "<h2>Aww. You lost. RIP.</h2> <p>Click here to enact vengeance!</p>"
+        headline: "<h2>Aww. You lost. RIP.</h2> <p>Click here to exact vengeance!</p>"
     }
 ]
 
@@ -138,6 +138,7 @@ const atkMenu = document.getElementById("atk-menu");
 const hpBars = document.getElementById("hp-container-section");
 const arenaDiv = document.getElementById("arena-section");
 const resetBanner = document.getElementById("reset");
+const vs = document.getElementById("vs");
 
 // Buttons
 const strikeBtn = document.getElementById("strike");
@@ -179,6 +180,9 @@ startBtn.addEventListener("click", function(event){
     hpBars.style.display = "flex";
 
     arenaDiv.classList.add('animated', 'slideInDown')
+
+    vs.classList.add('animated', 'fadeOutUp')
+    vs.style.display = "none";
 
     event.stopPropagation();
 });
@@ -223,11 +227,11 @@ function fight(playerAtk){
     if (playerAtk === 0 && bearAtk === 1){
         // if Player BLOCKS and Bear STRIKES
 
-        playerBodyDiv.innerHTML = playerKao[2].face;
-        playerBodyDiv.style.color = "#4A90E2"; //block
+        playerBodyDiv.innerHTML = playerKao[3].face;
+        playerBodyDiv.style.color = playerKao[3].color;
 
         bearBodyDiv.innerHTML = bearKao[4].face
-        bearBodyDiv.style.color = "#7ED321"; //strike
+        bearBodyDiv.style.color = bearKao[4].color;
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP Lost - block`)
 
@@ -235,10 +239,10 @@ function fight(playerAtk){
         // if Player BLOCKS && Bear THROWS
 
         playerBodyDiv.innerHTML = playerKao[2].face; 
-        playerBodyDiv.style.color = "#D0021B"; // dmg
+        playerBodyDiv.style.color = playerKao[2].color; // dmg
 
         bearBodyDiv.innerHTML = bearKao[5].face;
-        bearBodyDiv.style.color = "#F5A623"; //throw
+        bearBodyDiv.style.color = bearKao[5].color; //throw
 
         playerHpCount --
 
@@ -249,10 +253,10 @@ function fight(playerAtk){
         // if Player STRIKES and bear BLOCKS
 
         playerBodyDiv.innerHTML = playerKao[4].face;
-        playerBodyDiv.style.color = "#7ED321"; //strike
+        playerBodyDiv.style.color = playerKao[4].color; //strike
 
         bearBodyDiv.innerHTML = bearKao[3].face;
-        bearBodyDiv.style.color = "#4A90E2"; // block
+        bearBodyDiv.style.color = bearKao[3].color; // block
 
        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP Lost - block`)
 
@@ -260,10 +264,10 @@ function fight(playerAtk){
         // if Player STRIKES and Bear THROWS
 
         playerBodyDiv.innerHTML = playerKao[4].face;
-        playerBodyDiv.style.color = "#7ED321"; //strike
+        playerBodyDiv.style.color = playerKao[4].color;
 
         bearBodyDiv.innerHTML = bearKao[2].face;
-        bearBodyDiv.style.color = "#D0021B"; // throw-hit
+        bearBodyDiv.style.color = bearKao[2].color; // throw-hit
  
         bearHpCount--
 
@@ -274,10 +278,10 @@ function fight(playerAtk){
         // if Player THROWS and Bear STRIKES
 
         playerBodyDiv.innerHTML = playerKao[1].face; 
-        playerBodyDiv.style.color = "#D0021B"; // strike-hit
+        playerBodyDiv.style.color = playerKao[1].color; // strike-hit
 
         bearBodyDiv.innerHTML = bearKao[4].face
-        bearBodyDiv.style.color = "#7ED321";  //strike
+        bearBodyDiv.style.color = bearKao[4].color;  //strike
 
         playerHpCount--
 
@@ -288,28 +292,51 @@ function fight(playerAtk){
         // if Player THROWS and Bear BLOCKS
 
         playerBodyDiv.innerHTML = playerKao[5].face;
-        playerBodyDiv.style.fontSize = "35px"
-        playerBodyDiv.style.color = "#7ED321"
+        playerBodyDiv.style.fontSize = "35px";
+        playerBodyDiv.style.color = playerKao[5].color;
         
 
         bearBodyDiv.innerHTML = bearKao[2].face
-        bearBodyDiv.style.color = "#D0021B";
+        bearBodyDiv.style.color = bearKao[2].color
         bearHpCount--
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Bear LOSES 1 HP`)
 
-    } else if (playerAtk === bearAtk){
-
-        // same atk
+    } else if (playerAtk === 0 && bearAtk === 0){
+        // Both Block
         playerBodyDiv.innerHTML = playerKao[3].face;
-        playerBodyDiv.style.fontSize = "35px"
-        playerBodyDiv.style.color = "#4A90E2";
-
         bearBodyDiv.innerHTML = bearKao[3].face
-        bearBodyDiv.style.color = "#4A90E2";
 
-       console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP lost - same strike`)
-    } 
+        playerBodyDiv.style.color = playerKao[3].color;
+        bearBodyDiv.style.color = bearKao[3].color;
+
+       console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP lost - both block`)
+    
+    } else if (playerAtk === 1 && bearAtk === 1){
+        // Both Strike
+        playerBodyDiv.innerHTML = playerKao[4].face;
+        bearBodyDiv.innerHTML = bearKao[4].face
+
+        playerBodyDiv.style.color = playerKao[1].color;
+        bearBodyDiv.style.color = bearKao[1].color;
+
+        bearHpCount--
+        playerHpCount--
+
+        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} --  BOTH lose 1 HP - double strike`)
+
+    } else if (playerAtk === 2 && bearAtk === 2){
+        // Both Throw
+        playerBodyDiv.innerHTML = playerKao[5].face;
+        bearBodyDiv.innerHTML = bearKao[5].face
+
+        playerBodyDiv.style.color = playerKao[1].color;
+        bearBodyDiv.style.color = bearKao[1].color;
+
+        bearHpCount--
+        playerHpCount--
+        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} --  BOTH lose 1 HP - double throw`)
+    }
 }
 
 /* HP Check! */
@@ -345,7 +372,7 @@ function healthCheck() {
 
         bearBodyDiv.innerHTML = bearKao[6].face;
         bearBodyDiv.classList.add('animated', 'flash')
-        bearBodyDiv.style.color= "#ccc";
+        bearBodyDiv.style.color= bearKao[6].color;
 
     } else if(playerHpCount <= 0) {
         // Player Lose
@@ -359,7 +386,7 @@ function healthCheck() {
 
         playerBodyDiv.innerHTML = playerKao[6].face;
         playerBodyDiv.classList.add('animated', 'hinge')
-        playerBodyDiv.style.color= "#ccc";
+        playerBodyDiv.style.color= playerKao[6].color;
 
 
         bearBodyDiv.classList.add('animated', 'bounce')
@@ -367,11 +394,9 @@ function healthCheck() {
         bearBodyDiv.style.fontSize = "35px"
 
     } else {
-       
     }
 }
-// create a function that allows the 3 atk buttons to do essentially the same thing
-// Plug fight(); into this
+
 
 /* ATKBTN EVENT LISTENERS */
  //let randoAtk= Math.floor(Math.random() * 3);
