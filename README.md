@@ -23,6 +23,8 @@ the predecessor to Emojis!
   * ...and &hearts;!
 * The game utilizes a Random Number Generator. Good luck!
 * The faces are stored in an object array, which is retrieved via document.eventListeners!
+* Here's the Trello board if you're curious about my process and what's coming up next:
+    * https://trello.com/b/HIrHREo4/killer-kao
 
 
 ## Want to modify this app? Add a kaomoji? 
