@@ -29,10 +29,11 @@ This will randomy generate a number between 0-2
 * First player to zero HP loses!
 
 ## Under the Hood
-* This web browser application is made with HTML5, CSS, and vanilla JavaScript!
-* ...and &hearts;!
+* This web browser application is made with HTML5, CSS3, [Animate.css](https://daneden.github.io/animate.css/), and vanilla JavaScript!
+  * ...and &hearts;!
 * The game utilizes a Random Number Generator. Good luck!
 * The faces are stored in an object array, which is retrieved via document.eventListeners!
+* 
 
 ## Want to modify this app? Add a kaomoji? 
 * Feel free to fork this repo!
