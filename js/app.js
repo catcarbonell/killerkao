@@ -12,43 +12,43 @@ const playerKao = [
     }, 
     { /* 1 Strike-damage */
         id: "player-hit-dmg",
-        status: "hit-dmg",
+        status: "hit!",
         face: "໒(⁄›˅̭‹∖)७",
         color: "#D0021B"
     },
     { /* 2 Throw-damage */
         id: "player-throw-dmg",
-        status: "throw-dmg",
+        status: "tossed!",
         face: "╭ (o^o#)ᕗ",
         color: "#D0021B"
     },
     { /* 3 Block */
         id: "player-block",
-        status: "block",
+        status: "block!",
         face: "(`へ´*)ノ||",
         color: "#4A90E2"
     },
     { /* 4 Strike */
         id: "player-strike",
-        status: "strike-atk",
+        status: "strike!",
         face: "(○ ｀ｰ´)○☆",
         color: "#7ED321"
     },
     { /* 5 Throw */
         id: "player-throw",
-        status: "throw-atk",
+        status: "throw!",
         face: "(┛ಠДಠ)┛ミ ",
         color: "#F5A623"
     },
     { /* 6 Defeat */
         id: "player-defeat",
-        status: "defeat",
+        status: "defeat!",
         face: "(。□°）",
         color: "#ccc"
     },
     { /* 7 Win */
         id: "player-win",
-        status: "win",
+        status: "win!",
         face: "( •̀ᄇ• ́)ﻭ✧",
         color: "#333"
     }
@@ -58,49 +58,49 @@ const playerKao = [
 const bearKao = [
     { /* 0 Neutral */
         id: "bear-start",
-        status: "neutral",
+        status: "neutral!",
         face: "ʕ•ᴥ•  ʔ",
         color: "#333"
     }, 
     { /* 1 Strike-damage */
         id: "bear-hit-dmg",
-        status: "hit-dmg",
+        status: "hit!",
         face: "ʕథᴥథʔ",
         color: "#D0021B"
     },
     { /* 2 Throw-damage */
         id: "bear-throw-dmg",
-        status: "throw-dmg",
+        status: "tossed!",
         face: "ʕ.□ . ʔ",
         color: "#D0021B"
     },
     { /* 3 Block */
         id: "bear-block",
-        status: "block",
+        status: "block!",
         face: "||ʕノ)ᴥ(ヾʔ",
         color: "#4A90E2"
     },
     { /* 4 Strike */
         id: "bear-strike",
-        status: "strike-atk",
+        status: "strike!",
         face: "しʕ•ᴥ•し  ʔ",
         color: "#7ED321"
     },
     { /* 5 Throw */
         id: "bear-throw",
-        status: "throw-atk",
+        status: "throw!",
         face: "ミしʕ•ᴥ•し  ʔ",
         color: "#F5A623"
     },
     { /* 6 Defeat */
         id: "bear-defeat",
-        status: "defeat",
+        status: "defeat!",
         face: "ʕ×ᴥ ×  ʔ",
         color: "#ccc"
     },
     { /* 7 Win */
         id: "bear-win",
-        status: "win",
+        status: "win!",
         face: "ᕦʕ☯ ᴥ ☯ʔ",
         color: "#333"
     }
