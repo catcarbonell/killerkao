@@ -4,49 +4,49 @@ console.log("ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵　しʕ•ᴥ•し  ʔ");
 
 // Player
 const playerKao = [
-    { /* Neutral */
+    { /* 0 Neutral */
         id: "player-start",
         status: "neutral",
         face: "(๑و•̀ω•́)و",
         value: 0
     }, 
-    { /* Hit-damage */
+    { /* 1 Strike-damage */
         id: "player-hit-dmg",
         status: "hit-dmg",
         face: "໒(⁄›˅̭‹∖)७",
         value: 1
     },
-    { /* Throw-damage */
+    { /* 2 Throw-damage */
         id: "player-throw-dmg",
         status: "throw-dmg",
         face: "╭ (o^o#)ᕗ",
         value: 2
     },
-    { /* Block */
+    { /* 3 Block */
         id: "player-block",
         status: "block",
         face: "(`へ´*)ノ||",
         value: 0
     },
-    { /* Strike */
+    { /* 4 Strike */
         id: "player-strike",
         status: "strike-atk",
         face: "‾͟͟͞(((ꎤ๑>༬>๑)̂—̳͟͞͞o",
         value: 1
     },
-    { /* Throw */
+    { /* 5 Throw */
         id: "player-throw",
         status: "throw-atk",
         face: "(┛ಠДಠ)┛ミ ",
         value: 2
     },
-    { /* Defeat */
+    { /* 6 Defeat */
         id: "player-defeat",
         status: "defeat",
         face: "(。□°）",
         value: 0
     },
-    { /* Win */
+    { /* 7 Win */
         id: "player-win",
         status: "win",
         face: "( •̀ᄇ• ́)ﻭ✧",
@@ -62,7 +62,7 @@ const bearKao = [
         face: "ʕ•ᴥ•  ʔ",
         value: 0
     }, 
-    { /* 1 Hit-damage */
+    { /* 1 Strike-damage */
         id: "bear-hit-dmg",
         status: "hit-dmg",
         face: "ʕథᴥథʔ",
@@ -164,6 +164,9 @@ const bearHpSpan = document.getElementById("bear-hp");
 /* GAME INIT */
 // Start button gets clicked - event listener
 // Disappears - append css visibility: none?
+playerBodySpan.innerHTML = playerKao[0].face;
+bearBodySpan.innerHTML = bearKao[0].face;
+
 startBtn.addEventListener("click", function(event){
     startBtn.classList.add('animated', 'fadeOutUp')
     startBtn.style.display = "none";
@@ -172,7 +175,6 @@ startBtn.addEventListener("click", function(event){
     hpBars.classList.add('animated', 'slideInDown' )
     hpBars.style.display = "flex";
     arenaDiv.classList.add('animated', 'slideInDown')
-    //title.classList.add('animated', 'slideInDown')
 
     event.stopPropagation();
 });
@@ -209,49 +211,70 @@ let bearHpCount = 10;
 /* GAME LOGIC */
 
 function fight(playerAtk){
-    // Need event listener for buttons
-    // NO UI LOGIC HERE.
     //generates a number between 0 - 2
     let bearAtk = Math.floor(Math.random() * 3);
-    console.log(`Bear ${bearAtk}`);
-    console.log(`Player ${playerAtk}`);
-
-    // ATTACK CODES & LOGIC:
-    // STRIKE 1 > THROW 2 
-    // THROW 2 > BLOCK 0 
-    // BLOCK 0 > STRIKE 1 
+    //console.log(`Bear ${bearAtk}`);
+    //console.log(`Player ${playerAtk}`);
     
     if (playerAtk === 0 && bearAtk === 1){
-        // if Player BLOCKS and Bear STRIKES {
-        return "No HP Lost - block"
+        // if Player BLOCKS and Bear STRIKES
+
+        playerBodySpan.textContent = playerKao[2].face;
+        bearBodySpan.innerHTML = bearKao[4].face
+
+        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP Lost - block`)
+
     } else if (playerAtk === 0 && bearAtk === 2){
         // if Player BLOCKS && Bear THROWS
-        return "Player LOSES 1 HP"
+
+        playerBodySpan.innerHTML = playerKao[2].face;
+        bearBodySpan.innerHTML = bearKao[5].face
+
+        playerHpCount --
+        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
     } else if (playerAtk === 1 && bearAtk === 0){
+
         // if Player STRIKES and bear BLOCKS
-        return "No HP Lost - block"
+
+        playerBodySpan.innerHTML = playerKao[4].face;
+        bearBodySpan.innerHTML = bearKao[3].face
+
+       console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP Lost - block`)
+
     } else if (playerAtk === 1 && bearAtk === 2){
         // if Player STRIKES and Bear THROWS
-        return "Bear LOSES 1 HP"
+
+        playerBodySpan.innerHTML = playerKao[1].face;
+        bearBodySpan.innerHTML = bearKao[5].face
+
+        bearHpCount--
+
+        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Bear LOSES 1 HP`)
+
     } else if (playerAtk === 2 && bearAtk === 1) {
         // if Player THROWS and Bear STRIKES
-        return "Player LOSES 1 HP"
+
+        playerBodySpan.innerHTML = playerKao[1].face;
+        bearBodySpan.innerHTML = bearKao[4].face
+
+        playerHpCount--
+
+        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
     } else if (playerAtk === 2 && bearAtk === 0){
         // if Player THROWS and Bear BLOCKS
-        return "Bear LOSES 1 HP"
+        playerBodySpan.innerHTML = playerKao[5].face;
+        bearBodySpan.innerHTML = bearKao[2].face
+        bearHpCount--
+        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Bear LOSES 1 HP`)
     } else if (playerAtk === bearAtk){
         // same atk
-       return "No HP lost - same strike"
+        playerBodySpan.innerHTML = playerKao[3].face;
+        bearBodySpan.innerHTML = bearKao[3].face
+       console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP lost - same strike`)
     } 
 }
 
-
-
-let randoAtk= Math.floor(Math.random() * 3);
-
-console.log(fight(randoAtk));
-
-
+/* HP Check! */
 function healthCheck() {
     if(playerHpCount <= 0 && bearHpCount <= 0){
         // Double KO
@@ -278,7 +301,8 @@ function healthCheck() {
 
         atkMenu.classList.add('animated', 'slideOutDown')
         atkMenu.style.display = "none"
-
+        
+        playerBodySpan.innerHTML = playerKao[7].face;
         bearBodySpan.innerHTML = bearKao[6].face;
         bearBodySpan.style.color= "#ccc";
 
@@ -304,20 +328,40 @@ function healthCheck() {
         playerBodySpan.innerHTML = playerKao[0].face;
         bearBodySpan.innerHTML = bearKao[0].face;
     }
-}    
+}
+// create a function that allows the 3 atk buttons to do essentially the same thing
+// Plug fight(); into this
 
-strikeBtn.addEventListener("click", function(event){
-/*   
-    playerHpSpan.innerHTML = playerHpBars.pop();*/
-    console.log("pop pop pop")
+/* ATKBTN EVENT LISTENERS */
+ //let randoAtk= Math.floor(Math.random() * 3);
+strikeBtn.addEventListener("click", function (event){   
+    fight(1);
     healthCheck();
-    //bearHpSpan.innerHTML = bearHpCount--;
-    playerHpSpan.innerHTML = playerHpCount--;
+    playerHpSpan.innerHTML = playerHpCount;
+    bearHpSpan.innerHTML = bearHpCount;
+    event.stopPropagation()
+
 });
 
+throwBtn.addEventListener("click", function (event){
+    fight(2);
+    healthCheck();
+    playerHpSpan.innerHTML = playerHpCount;
+    bearHpSpan.innerHTML = bearHpCount;
 
+    event.stopPropagation()
 
+});
 
-/* HP BAR DISPLAY */
+blockBtn.addEventListener("click", function (event){
+    fight(0);
+    healthCheck();
+    playerHpSpan.innerHTML = playerHpCount;
+    bearHpSpan.innerHTML = bearHpCount;
+    event.stopPropagation()
+
+});
+
+ //HP BAR DISPLAY 
 playerHpSpan.innerHTML = playerHpCount;
-bearHpSpan.innerHTML = bearHpCount
+bearHpSpan.innerHTML = bearHpCount;
