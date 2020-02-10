@@ -31,7 +31,7 @@ const playerKao = [
     { /* 4 Strike */
         id: "player-strike",
         status: "strike-atk",
-        face: "‾͟͟͞(((ꎤ๑>༬>๑)̂—̳͟͞͞o",
+        face: "(○ ｀ｰ´)○☆",
         value: 1
     },
     { /* 5 Throw */
@@ -124,7 +124,7 @@ const outcome = [
     { //2
         state: "lose",
         bgcolor: "rgba(248, 178, 187, 0.9)",
-        headline: "<h2>Aww. You lost. RIP.</h2> <p>Click here to exact vengeance!</p>"
+        headline: "<h2>Aww. You lost. RIP.</h2> <p>Click here to enact vengeance!</p>"
     }
 ]
 
@@ -166,14 +166,18 @@ const bearHpSpan = document.getElementById("bear-hp");
 // Disappears - append css visibility: none?
 playerBodySpan.innerHTML = playerKao[0].face;
 bearBodySpan.innerHTML = bearKao[0].face;
+bearBodySpan.style.fontSize = "50px";
 
 startBtn.addEventListener("click", function(event){
     startBtn.classList.add('animated', 'fadeOutUp')
     startBtn.style.display = "none";
+
     atkMenu.classList.add('animated', 'slideInUp')
     atkMenu.style.display = "initial";
+
     hpBars.classList.add('animated', 'slideInDown' )
     hpBars.style.display = "flex";
+
     arenaDiv.classList.add('animated', 'slideInDown')
 
     event.stopPropagation();
@@ -194,12 +198,12 @@ resetBanner.addEventListener("click", function(event) {
 // Numbers based?
     // if i < count; i ++ ; every i can be a health bar count -> "|"
 
-let playerHpCount = 10;
+let playerHpCount = 5;
 //let playerHpBars =[
  // "|","|","|","|","|","|","|","|","|","|"
 //]
 
-let bearHpCount = 10;
+let bearHpCount = 5;
 //let bearHpBars = [
    // "|","|","|","|","|","|","|","|","|","|"
 //]
@@ -219,57 +223,91 @@ function fight(playerAtk){
     if (playerAtk === 0 && bearAtk === 1){
         // if Player BLOCKS and Bear STRIKES
 
-        playerBodySpan.textContent = playerKao[2].face;
-        bearBodySpan.innerHTML = bearKao[4].face
+        playerBodyDiv.innerHTML = playerKao[2].face;
+        playerBodyDiv.style.color = "#4A90E2"; //block
+
+        bearBodyDiv.innerHTML = bearKao[4].face
+        bearBodyDiv.style.color = "#7ED321"; //strike
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP Lost - block`)
 
     } else if (playerAtk === 0 && bearAtk === 2){
         // if Player BLOCKS && Bear THROWS
 
-        playerBodySpan.innerHTML = playerKao[2].face;
-        bearBodySpan.innerHTML = bearKao[5].face
+        playerBodyDiv.innerHTML = playerKao[2].face; 
+        playerBodyDiv.style.color = "#D0021B"; // dmg
+
+        bearBodyDiv.innerHTML = bearKao[5].face;
+        bearBodyDiv.style.color = "#F5A623"; //throw
 
         playerHpCount --
+
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
+
     } else if (playerAtk === 1 && bearAtk === 0){
 
         // if Player STRIKES and bear BLOCKS
 
-        playerBodySpan.innerHTML = playerKao[4].face;
-        bearBodySpan.innerHTML = bearKao[3].face
+        playerBodyDiv.innerHTML = playerKao[4].face;
+        playerBodyDiv.style.color = "#7ED321"; //strike
+
+        bearBodyDiv.innerHTML = bearKao[3].face;
+        bearBodyDiv.style.color = "#4A90E2"; // block
 
        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP Lost - block`)
 
     } else if (playerAtk === 1 && bearAtk === 2){
         // if Player STRIKES and Bear THROWS
 
-        playerBodySpan.innerHTML = playerKao[1].face;
-        bearBodySpan.innerHTML = bearKao[5].face
+        playerBodyDiv.innerHTML = playerKao[4].face;
+        playerBodyDiv.style.color = "#7ED321"; //strike
 
+        bearBodyDiv.innerHTML = bearKao[2].face;
+        bearBodyDiv.style.color = "#D0021B"; // throw-hit
+ 
         bearHpCount--
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Bear LOSES 1 HP`)
 
     } else if (playerAtk === 2 && bearAtk === 1) {
+
         // if Player THROWS and Bear STRIKES
 
-        playerBodySpan.innerHTML = playerKao[1].face;
-        bearBodySpan.innerHTML = bearKao[4].face
+        playerBodyDiv.innerHTML = playerKao[1].face; 
+        playerBodyDiv.style.color = "#D0021B"; // strike-hit
+
+        bearBodyDiv.innerHTML = bearKao[4].face
+        bearBodyDiv.style.color = "#7ED321";  //strike
 
         playerHpCount--
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
+
     } else if (playerAtk === 2 && bearAtk === 0){
+
         // if Player THROWS and Bear BLOCKS
-        playerBodySpan.innerHTML = playerKao[5].face;
-        bearBodySpan.innerHTML = bearKao[2].face
+
+        playerBodyDiv.innerHTML = playerKao[5].face;
+        playerBodyDiv.style.fontSize = "35px"
+        playerBodyDiv.style.color = "#7ED321"
+        
+
+        bearBodyDiv.innerHTML = bearKao[2].face
+        bearBodyDiv.style.color = "#D0021B";
         bearHpCount--
+
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Bear LOSES 1 HP`)
+
     } else if (playerAtk === bearAtk){
+
         // same atk
-        playerBodySpan.innerHTML = playerKao[3].face;
-        bearBodySpan.innerHTML = bearKao[3].face
+        playerBodyDiv.innerHTML = playerKao[3].face;
+        playerBodyDiv.style.fontSize = "35px"
+        playerBodyDiv.style.color = "#4A90E2";
+
+        bearBodyDiv.innerHTML = bearKao[3].face
+        bearBodyDiv.style.color = "#4A90E2";
+
        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP lost - same strike`)
     } 
 }
@@ -286,11 +324,11 @@ function healthCheck() {
         atkMenu.classList.add('animated', 'slideOutDown')
         atkMenu.style.display = "none"
 
-        playerBodySpan.innerHTML = playerKao[6].face;
-        playerBodySpan.style.color= "#ccc";
+        playerBodyDiv.innerHTML = playerKao[6].face;
+        playerBodyDiv.style.color= "#ccc";
 
-        bearBodySpan.innerHTML = bearKao[6].face;
-        bearBodySpan.style.color= "#ccc";
+        bearBodyDiv.innerHTML = bearKao[6].face;
+        bearBodyDiv.style.color= "#ccc";
 
     } else if(bearHpCount <= 0) {
         // Player Win
@@ -301,10 +339,13 @@ function healthCheck() {
 
         atkMenu.classList.add('animated', 'slideOutDown')
         atkMenu.style.display = "none"
-        
-        playerBodySpan.innerHTML = playerKao[7].face;
-        bearBodySpan.innerHTML = bearKao[6].face;
-        bearBodySpan.style.color= "#ccc";
+
+        playerBodyDiv.classList.add('animated', 'bounce')
+        playerBodyDiv.innerHTML = playerKao[7].face;
+
+        bearBodyDiv.innerHTML = bearKao[6].face;
+        bearBodyDiv.classList.add('animated', 'flash')
+        bearBodyDiv.style.color= "#ccc";
 
     } else if(playerHpCount <= 0) {
         // Player Lose
@@ -316,17 +357,17 @@ function healthCheck() {
         atkMenu.classList.add('animated', 'slideOutDown')
         atkMenu.style.display = "none"
 
-        playerBodySpan.innerHTML = playerKao[6].face;
+        playerBodyDiv.innerHTML = playerKao[6].face;
         playerBodyDiv.classList.add('animated', 'hinge')
-        playerBodySpan.style.color= "#ccc";
+        playerBodyDiv.style.color= "#ccc";
 
-        bearBodySpan.innerHTML = bearKao[7].face;
+
         bearBodyDiv.classList.add('animated', 'bounce')
-        bearBodySpan.style.fontSize = "35px"
+        bearBodyDiv.innerHTML = bearKao[7].face;
+        bearBodyDiv.style.fontSize = "35px"
 
     } else {
-        playerBodySpan.innerHTML = playerKao[0].face;
-        bearBodySpan.innerHTML = bearKao[0].face;
+       
     }
 }
 // create a function that allows the 3 atk buttons to do essentially the same thing
@@ -365,3 +406,5 @@ blockBtn.addEventListener("click", function (event){
  //HP BAR DISPLAY 
 playerHpSpan.innerHTML = playerHpCount;
 bearHpSpan.innerHTML = bearHpCount;
+
+

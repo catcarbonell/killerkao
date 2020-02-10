@@ -184,7 +184,7 @@ text-align: center;
 /* <DIV> - #ARENA - </DIV> */
 
 #arena-section {
-    width: 400px;
+    width: 500px;
     margin: 50px;
     color: #333;
 
@@ -198,11 +198,9 @@ text-align: center;
     font-size: 40px;
     width: 500px;
 }
+
 /* PLAYER-CONTAINER */
-#player-body {
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-}
+
 
 /* BEAR-CONTAINER ʕ•ᴥ•  ʔ */
 #bear {
@@ -211,7 +209,7 @@ text-align: center;
 
 #bear-body {
     color: #333;
-    font-size: 50px;
+    font-size: 35px;
 }
 
 
