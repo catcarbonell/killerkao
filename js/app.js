@@ -42,13 +42,13 @@ const playerKao = [
     },
     { /* 6 Defeat */
         id: "player-defeat",
-        status: "defeat!",
+        status: "Defeated!",
         face: "(。□°）",
         color: "#ccc"
     },
     { /* 7 Win */
         id: "player-win",
-        status: "win!",
+        status: "Winner!",
         face: "( •̀ᄇ• ́)ﻭ✧",
         color: "#333"
     }
@@ -94,13 +94,13 @@ const bearKao = [
     },
     { /* 6 Defeat */
         id: "bear-defeat",
-        status: "defeat!",
+        status: "Defeated!",
         face: "ʕ×ᴥ × ʔ ",
         color: "#ccc"
     },
     { /* 7 Win */
         id: "bear-win",
-        status: "win!",
+        status: "Winner!",
         face: "ᕦʕ☯ᴥ ☯ʔ",
         color: "#333"
     }
@@ -377,6 +377,8 @@ function healthCheck() {
 
         bearBodyDiv.innerHTML = bearKao[6].face;
         bearBodyDiv.style.color= "#ccc";
+        console.log("KYA!")
+
 
     } else if(bearHpCount <= 0) {
         // Player Win
@@ -390,10 +392,13 @@ function healthCheck() {
 
         playerBodyDiv.classList.add('animated', 'bounce')
         playerBodyDiv.innerHTML = playerKao[7].face;
+        playerAtkFeedback.innerHTML = playerKao[7].status;
+        console.log("WHA!")
 
         bearBodyDiv.innerHTML = bearKao[6].face;
         bearBodyDiv.classList.add('animated', 'flash')
         bearBodyDiv.style.color= bearKao[6].color;
+        bearAtkFeedback.innerHTML = bearKao[6].status;
 
     } else if(playerHpCount <= 0) {
         // Player Lose
@@ -408,14 +413,15 @@ function healthCheck() {
         playerBodyDiv.innerHTML = playerKao[6].face;
         playerBodyDiv.classList.add('animated', 'hinge')
         playerBodyDiv.style.color= playerKao[6].color;
+        playerAtkFeedback.innerHTML = playerKao[6].status;
 
 
         bearBodyDiv.classList.add('animated', 'bounce')
         bearBodyDiv.innerHTML = bearKao[7].face;
+        bearAtkFeedback.innerHTML = bearKao[7].status;
+        console.log("BAH!")
 
-
-    } else {
-    }
+    } 
 }
 
 
