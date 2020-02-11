@@ -14,14 +14,18 @@
     
     <header class="outcome" id="reset">
         <!-- OUTCOME MESSAGE IS GENERATED HERE-->
-
     </header>
 
     <main>
         <header id="title">
             <h1>Killer Kao</h1>
         </header>
-
+       
+        <div id="vs">
+            
+            <h2>VS</h2>
+        </div>
+        
         <!-- HP CONTAINERS -->
 
         <div id="hp-container-section">
@@ -29,32 +33,38 @@
             <!-- PLAYER HP -->
             <div class="hp-container" id="player-hp-container"> 
                 <p class="names">You</p>
-                <span>HP:</span><span class="hp-bar" id="player-hp"></span>
+                <span class="hp-label">Health Points:</span> <span class="hp-bar" id="player-hp"></span>
             </div>
 
+    
             <!-- BEAR HP -->
             <div class="hp-container" id="bear-hp-container"> 
                 <p class="names">Bear</p>
-                <span id="bear-hp-label">HP:</span><span class="hp-bar" id="bear-hp"></span>
+                <span class="hp-label">Health Points:</span> <span class="hp-bar" id="bear-hp"></span>
             </div>
         </div>
 
+        <!-- ARENA -->
         <div id="arena-section">
 
             <!-- PLAYER CONTAINER -->
             <div id="player" class="character">
                 <span id="player-body"></span> 
             </div>
-            <div id="vs">
-                <h2>VS</h2>
-            </div>
+            
             <!-- BEAR CONTAINER -->
             <div id="bear" class="character">
                 <span id="bear-body"></span>
             </div>
 
         </div>
-
+        <! -- ATK FEEDBACK -->
+     <div id="atk-feedback-container" class="atk-feedback">
+        <span id="player-atk-feedback">
+        </span> 
+        <span id="bear-atk-feedback">
+        </span>
+    </div>
 
         <button id="start">Start!</button>
         <nav id="atk-menu">

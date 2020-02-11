@@ -24,12 +24,15 @@ fieldset{border-width:0; padding:0; margin:0;}
 
 body { 
     height: 100vh;
+    width: 100%;
     font-family: Helvetica, sans-serif;
     
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    
 }
 
 h1, h2 {
@@ -40,14 +43,14 @@ button {
     font-size: 18px;
     border: solid #333 2px;
     border-radius:5px;
-
     padding: 5px 20px;
 }
 
 footer {
-    margin-top: 30px;
+    margin-top: 5%;
     font-size: 12px;
     letter-spacing: 1px;
+    text-align: center;
 }
 
 footer a:link, a:visited {
@@ -63,8 +66,8 @@ footer a:hover {
 /* <MAIN> */
 
 main {
-    min-width: 450px;
-    max-width: 1200px;
+    min-width: 300px;
+    width: 40%;
 
     display: flex;
     flex-direction: column;
@@ -107,7 +110,7 @@ text-align: center;
     border: solid #333 2px;
     background-color: #D0021B;
 
-    margin: 20px;
+    margin: 10px auto;
 }
 
 #start:hover {
@@ -119,14 +122,12 @@ text-align: center;
 /* - <NAV> ATK MENU </NAV> - */
 #atk-menu {
     display: none;
-    z-index: 9;
-    position: relative;
-    margin-top: -10px;
+    margin: 10px auto;
 }
 
 /* - <BUTTON> ATK-BTN </BUTTON> - */
 .atk-btn {
-    margin: 0 5px 0 5px;
+    margin: 0 auto;
     background-color: #fff;
 }
 
@@ -155,75 +156,102 @@ text-align: center;
     transition: ease 0.1s;
 }
 
-
-
-
-
 /* <DIV><SPAN> - HP-CONTAINER + HP-BARS - </SPAN></DIV> */
 
 #hp-container-section{
-    width: 400px;
-    font-size: 30px;
+    min-width: 300px;
+    width: 40%;
+    font-size: 20px;
     display: flex;
     align-content: row;
     color: #333;
     display: none;
 }
 
+.hp-label {
+    font-size: 0.7em;
+}
 #player-hp-container {
-    width: 200px;
+    min-width: 150px;
 }
 
 #player-hp {
     color: #333;
+    font-weight: 700;
 }
 
 #bear-hp-container{
-    width: 200px;
+    min-width: 150px;
     text-align: right;
 }
 
 #bear-hp {
     color: #333;
+    font-weight: 700;
 }
 
-#bear-hp-label span{
-    position: fixed;
-}
 .names {
-    font-size: 15px;
+    font-size: 25px;
+    font-weight: 700;
 }
 
+/* <DIV> ATK-FEEDBACK </DIV> */
+.atk-feedback {
+    display: flex;
+    flex-flow: row wrap;
+    align-content: row;
+    font-size: 13px;
+}
+#player-atk-feedback {
+    margin: 5px 10px;
+    text-align: left;
+    align-items: row;
+}
+#bear-atk-feedback {
+    margin: 5px 10px;
+    align-items: row;
+}
 
 /* <DIV> - #ARENA - </DIV> */
 
 #arena-section {
-    width: 500px;
-    margin: 50px;
+    min-width: 300px;
+    width: 40%;
+    /*height: 15vh;*/
+    margin: 20px auto;
     color: #333;
 
     display: flex;
     flex-flow: row nowrap;
+    
 }
 
 /* <DIV> - .CHARACTER - </DIV> */
 
 .character {
-    font-size: 40px;
-    width: 500px;
+    font-size: 1.5em;
+    min-width: 150px;
+    width: 15%;
 }
 
 /* PLAYER-CONTAINER */
-
+#player {
+    display: flex;
+    flex-flow: column;
+    align-self: flex-end;
+}
 
 /* BEAR-CONTAINER ʕ•ᴥ•  ʔ */
 #bear {
     text-align: right;
+    margin: 0 auto;
+    padding-right: 5px;
 }
 
 #bear-body {
     color: #333;
-    font-size: 35px;
+    font-size: 1.6em;
+    margin: 0 auto;
 }
 
 
