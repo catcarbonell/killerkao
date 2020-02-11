@@ -62,6 +62,54 @@ footer a:hover {
     color: #6f4377;
 }
 
+footer h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* HOW TO PLAY */
+#how-to-link:hover {
+    color:#ffb1b1;
+    cursor: pointer;
+}
+
+#how-to-section {
+    min-width: 350px;
+    width: 50%;
+    background-color: rgba(255,255,255, 0.9);
+    border: 3px solid #45b8ac;
+    padding: 30px;
+    position: absolute;
+    border-radius: 20px;
+    font-size: 12px;
+    z-index: 9;
+    display: none;
+}
+
+#how-to-section p {
+    text-align: right;
+    font-weight: 900;
+}
+#how-to-section p:hover {
+    color: #45b8ac;
+    cursor: pointer;
+}
+
+#how-to-section h1 {
+    font-size: 2em;
+}
+
+#how-to-section li{
+    font-size: 12px;
+    list-style-type: circle;
+    line-height: 1.5em;
+    letter-spacing: 0.5px;
+}
+
+#fite-me p {
+    font-weight: 100;
+    text-align: right;
+}
 
 /* <MAIN> */
 
@@ -77,7 +125,7 @@ main {
 
 /* <HEADER> */
 
-#title { /* BEFORE */
+#title {
 font-size: 2.5em;
 text-align: center;
 }
@@ -202,6 +250,7 @@ text-align: center;
     flex-flow: row wrap;
     align-content: row;
     font-size: 13px;
+    letter-spacing: 0.5px;
 }
 #player-atk-feedback {
     margin: 5px 10px;
@@ -262,7 +311,7 @@ text-align: center;
         font-size: 18px;
     }
     .character {
-        width: 45%;
+        width: 30%;
         font-size: 20px;
     }
-}
+} 

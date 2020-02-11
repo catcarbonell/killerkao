@@ -139,6 +139,9 @@ const hpBars = document.getElementById("hp-container-section");
 const arenaDiv = document.getElementById("arena-section");
 const resetBanner = document.getElementById("reset");
 const vs = document.getElementById("vs");
+const howToSection = document.getElementById("how-to-section");
+const howToLink = document.getElementById("how-to-link");
+const closeWindow = document.getElementById("close");
 
 // Atk Feedback Section
 const atkFeedback = document.querySelector(".atk-feedback");
@@ -199,6 +202,20 @@ resetBanner.addEventListener("click", function(event) {
     document.location.reload(true)
     event.stopPropagation();    
 });
+
+/* HOW TO SECTION */
+howToLink.addEventListener("click", function(event){
+    howToSection.classList.add('animated', 'slideInDown')
+    howToSection.style.display = "initial";
+    event.stopPropagation();
+});
+
+closeWindow.addEventListener("click", function(event){
+    howToSection.classList.add('animated', 'slideOutUp')
+    howToSection.style.display = "none";
+    event.stopPropagation();
+});
+
 
 // ======================================================== //
 
