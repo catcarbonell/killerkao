@@ -13,7 +13,7 @@ const playerKao = [
     { /* 1 Strike-damage */
         id: "player-hit-dmg",
         status: "You were hit!",
-        face: "໒(⁄;˅̭;∖)७",
+        face: "(థ3థ#)",
         color: "#D0021B"
     },
     { /* 2 Throw-damage */
@@ -65,13 +65,13 @@ const bearKao = [
     { /* 1 Strike-damage */
         id: "bear-hit-dmg",
         status: "Bear was hit!",
-        face: "ʕథᴥథʔ",
+        face: "ʕ#థᴥథʔ",
         color: "#D0021B"
     },
     { /* 2 Throw-damage */
         id: "bear-throw-dmg",
         status: "Bear was tossed!",
-        face: "ʕ.□. ʔ",
+        face: "ʕ.O. ʔ",
         color: "#D0021B"
     },
     { /* 3 Block */
@@ -371,9 +371,11 @@ function healthCheck() {
         atkMenu.style.display = "none"
 
         playerBodyDiv.innerHTML = playerKao[6].face;
+        playerBodyDiv.classList.add('animated', 'shake')
         playerBodyDiv.style.color= "#ccc";
 
         bearBodyDiv.innerHTML = bearKao[6].face;
+        bearBodyDiv.classList.add('animated', 'tada')
         bearBodyDiv.style.color= "#ccc";
        
 
