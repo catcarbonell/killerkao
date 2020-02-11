@@ -161,6 +161,7 @@ text-align: center;
 #hp-container-section{
     min-width: 300px;
     width: 40%;
+
     font-size: 20px;
     display: flex;
     align-content: row;
@@ -217,7 +218,6 @@ text-align: center;
 #arena-section {
     min-width: 300px;
     width: 40%;
-    /*height: 15vh;*/
     margin: 20px auto;
     color: #333;
 
@@ -255,5 +255,14 @@ text-align: center;
 }
 
 
-
-
+/* MEDIA QUERIES */
+@media only screen and (max-device-width: 360px) {
+   
+    .names {
+        font-size: 18px;
+    }
+    .character {
+        width: 45%;
+        font-size: 20px;
+    }
+}

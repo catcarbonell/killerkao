@@ -377,7 +377,7 @@ function healthCheck() {
 
         bearBodyDiv.innerHTML = bearKao[6].face;
         bearBodyDiv.style.color= "#ccc";
-        console.log("KYA!")
+       
 
 
     } else if(bearHpCount <= 0) {
@@ -393,7 +393,7 @@ function healthCheck() {
         playerBodyDiv.classList.add('animated', 'bounce')
         playerBodyDiv.innerHTML = playerKao[7].face;
         playerAtkFeedback.innerHTML = playerKao[7].status;
-        console.log("WHA!")
+        
 
         bearBodyDiv.innerHTML = bearKao[6].face;
         bearBodyDiv.classList.add('animated', 'flash')
@@ -419,7 +419,7 @@ function healthCheck() {
         bearBodyDiv.classList.add('animated', 'bounce')
         bearBodyDiv.innerHTML = bearKao[7].face;
         bearAtkFeedback.innerHTML = bearKao[7].status;
-        console.log("BAH!")
+    
 
     } 
 }
