@@ -13,42 +13,42 @@ const playerKao = [
     { /* 1 Strike-damage */
         id: "player-hit-dmg",
         status: "You were hit!",
-        face: "໒(⁄›˅̭‹∖)७",
+        face: "໒(⁄;˅̭;∖)७",
         color: "#D0021B"
     },
     { /* 2 Throw-damage */
         id: "player-throw-dmg",
         status: "You've been tossed!",
-        face: "╭ (o^o#)ᕗ",
+        face: "╭(o^o#)ᕗ",
         color: "#D0021B"
     },
     { /* 3 Block */
         id: "player-block",
         status: "You blocked!",
-        face: "(`へ´*)ノ||",
+        face: "(`へ´ )┛||",
         color: "#4A90E2"
     },
     { /* 4 Strike */
         id: "player-strike",
         status: "You strike!",
-        face: "(○ ｀ｰ´)○☆",
+        face: "(┛｀ｰ´)o☆",
         color: "#7ED321"
     },
     { /* 5 Throw */
         id: "player-throw",
         status: "You throw!",
-        face: "(┛ಠДಠ)┛ミ ",
+        face: "(┛ಠAಠ)┛ミ",
         color: "#F5A623"
     },
     { /* 6 Defeat */
         id: "player-defeat",
-        status: "Defeated!",
+        status: "You dead.",
         face: "(。□°）",
         color: "#ccc"
     },
     { /* 7 Win */
         id: "player-win",
-        status: "Winner!",
+        status: "You Win!",
         face: "( •̀ᄇ• ́)ﻭ✧",
         color: "#333"
     }
@@ -59,7 +59,7 @@ const bearKao = [
     { /* 0 Neutral */
         id: "bear-start",
         status: "neutral!",
-        face: "ʕ•ᴥ•  ʔ",
+        face: "ʕ•ᴥ• ʔ",
         color: "#333"
     }, 
     { /* 1 Strike-damage */
@@ -71,7 +71,7 @@ const bearKao = [
     { /* 2 Throw-damage */
         id: "bear-throw-dmg",
         status: "Bear was tossed!",
-        face: "ʕ.□ . ʔ",
+        face: "ʕ.□. ʔ",
         color: "#D0021B"
     },
     { /* 3 Block */
@@ -83,7 +83,7 @@ const bearKao = [
     { /* 4 Strike */
         id: "bear-strike",
         status: "Bear strikes!",
-        face: "しʕ•ᴥ•しʔ ",
+        face: "☆oʕ•ᴥ•しʔ ",
         color: "#7ED321"
     },
     { /* 5 Throw */
@@ -94,14 +94,14 @@ const bearKao = [
     },
     { /* 6 Defeat */
         id: "bear-defeat",
-        status: "Defeated!",
-        face: "ʕ×ᴥ × ʔ ",
+        status: "Bear defeated!",
+        face: "ʕ×ᴥ× ʔ ",
         color: "#ccc"
     },
     { /* 7 Win */
         id: "bear-win",
-        status: "Winner!",
-        face: "ᕦʕ☯ᴥ ☯ʔ",
+        status: "Bear wins!",
+        face: "ᕦʕ•̀ᴥ•́ʔ✧",
         color: "#333"
     }
 ]
@@ -211,9 +211,7 @@ resetBanner.addEventListener("click", function(event) {
 
 let playerHpCount = 7;
 
-
 let bearHpCount = 7;
-
 
 // ======================================================== //
 
