@@ -205,14 +205,18 @@ resetBanner.addEventListener("click", function(event) {
 
 /* HOW TO SECTION */
 howToLink.addEventListener("click", function(event){
+    howToSection.classList.remove('animated', 'slideOutUp')
     howToSection.classList.add('animated', 'slideInDown')
     howToSection.style.display = "initial";
+    console.log("How to active")
     event.stopImmediatePropagation();
 });
 
 closeWindow.addEventListener("click", function(event){
-    howToSection.classList.add('animated', 'slideOutUp')
-    howToSection.style.display = "none";
+    howToSection.classList.remove('animated', 'slideInDown')
+    howToSection.classList.add('animated', 'fast', 'fadeOutUp')
+   // howToSection.style.display = "none";
+    console.log("How to closed")
     event.stopImmediatePropagation();
 });
 
@@ -238,6 +242,7 @@ let bearHpCount = 7;
 function fight(playerAtk){
     //generates a number between 0 - 2
     let bearAtk = Math.floor(Math.random() * 3);
+    let strikeCount = 0;
     //console.log(`Bear ${bearAtk}`);
     //console.log(`Player ${playerAtk}`);
     
