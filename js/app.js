@@ -412,8 +412,6 @@ function fight(playerAtk){
         playerAtkFeedback.innerHTML = playerKao[3].status;
         bearAtkFeedback.innerHTML = bearKao[3].status;
 
-        strikeCount = 0;
-
        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP lost - both block`)
     
     } else if (playerAtk === 1 && bearAtk === 1){
