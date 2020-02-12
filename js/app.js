@@ -207,13 +207,13 @@ resetBanner.addEventListener("click", function(event) {
 howToLink.addEventListener("click", function(event){
     howToSection.classList.add('animated', 'slideInDown')
     howToSection.style.display = "initial";
-    event.stopPropagation();
+    event.stopImmediatePropagation();
 });
 
 closeWindow.addEventListener("click", function(event){
     howToSection.classList.add('animated', 'slideOutUp')
     howToSection.style.display = "none";
-    event.stopPropagation();
+    event.stopImmediatePropagation();
 });
 
 

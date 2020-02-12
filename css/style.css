@@ -54,12 +54,12 @@ footer {
 }
 
 footer a:link, a:visited {
-    color: #a88ead;
+    color: #45b8ac;
     text-decoration: none;
 }
 
 footer a:hover {
-    color: #6f4377;
+    color: #379389;
 }
 
 footer h2 {
@@ -69,7 +69,7 @@ footer h2 {
 
 /* HOW TO PLAY */
 #how-to-link:hover {
-    color:#ffb1b1;
+    color: #45b8ac;
     cursor: pointer;
 }
 
