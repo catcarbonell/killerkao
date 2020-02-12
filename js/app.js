@@ -104,10 +104,13 @@ const bearKao = [
         face: "ᕦʕ•̀ᴥ•́ʔ✧",
         color: "#333"
     },
-    { /* 8 Anti-shenanigans*/
+    { /* 8 Anti-strike shenanigans*/
         face: "ミしʕ•̀ᴥ•́しʔ",
         color: "#FF4CEE"
-    
+    },
+    { /* 9 Anti-block shenanigans */ 
+        face: "ʕ ꈍᴥꈍʔ - z",
+        color: "#7ED321"
     }
 ]
 
@@ -267,7 +270,7 @@ function strikeCheck(){
         playerBodyDiv.innerHTML = playerKao[2].face; 
         playerBodyDiv.style.color = playerKao[2].color;
 
-        playerAtkFeedback.innerHTML = "Srsly. Stop it.";
+        playerAtkFeedback.innerHTML = "The bear ate your punching arm. >:(";
         bearAtkFeedback.innerHTML = "";
 
         strikeBtn.classList.add('animated', 'flash');
@@ -288,9 +291,11 @@ function blockCheck(){
        
     } else if(blockCount > 2) {
         playerAtkFeedback.style.textAlign = "center";
-        playerAtkFeedback.innerHTML = ">:(";
+        playerAtkFeedback.innerHTML = "You didn't really do anything <br /> so Bear decided to sleep. <br /> Bear heals up. <br /> You need to fight now. >:(";
+        
         bearAtkFeedback.innerHTML = "";
         blockBtn.style.display = "none";
+        bearHpCount = 7;
     }
 }
 
