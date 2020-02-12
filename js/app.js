@@ -244,6 +244,7 @@ let blockCount = 0;
 
 
 /* STRIKE COUNT CHECK */
+// Anti-spamming block or strike section
 
 function strikeCheck(){
     if(strikeCount === 3){
@@ -277,13 +278,15 @@ function strikeCheck(){
     }
 }
 
+/* BLOCK COUNT CHECK */
+
 function blockCheck(){
-    if(blockCount === 3) {
+    if(blockCount === 2) {
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = "COME ON. FIGHT.";
         bearAtkFeedback.innerHTML = "";
        
-    } else if(blockCount >= 4) {
+    } else if(blockCount >= 3) {
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = ">:(";
         bearAtkFeedback.innerHTML = "";
@@ -291,18 +294,16 @@ function blockCheck(){
     }
 }
 
-/* GAME LOGIC */
+/* MAIN GAME LOGIC */
 
 function fight(playerAtk){
     //generates a number between 0 - 2
     let bearAtk = Math.floor(Math.random() * 3);
-    //console.log(`Bear ${bearAtk}`);
-    //console.log(`Player ${playerAtk}`);
-    //console.log(strikeCount + " strikes");
 
      if (playerAtk === 0 && bearAtk === 1){
         // if Player BLOCKS and Bear STRIKES
         blockCount++; 
+        
         playerBodyDiv.innerHTML = playerKao[3].face;
         playerBodyDiv.style.color = playerKao[3].color;
         playerAtkFeedback.innerHTML = playerKao[3].status;
@@ -333,7 +334,6 @@ function fight(playerAtk){
         if (strikeCount < 4) {
         strikeCount++
         }
-
         playerBodyDiv.innerHTML = playerKao[4].face;
         playerBodyDiv.style.color = playerKao[4].color;
         playerAtkFeedback.innerHTML = playerKao[4].status;
@@ -341,6 +341,8 @@ function fight(playerAtk){
         bearBodyDiv.innerHTML = bearKao[3].face;
         bearBodyDiv.style.color = bearKao[3].color;
         bearAtkFeedback.innerHTML = bearKao[3].status;
+        
+        blockCount = 0;
 
        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP Lost - block`)
 
@@ -376,6 +378,7 @@ function fight(playerAtk){
 
         playerHpCount--
         strikeCount = 0;
+        blockCount = 0;
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
 
@@ -524,9 +527,8 @@ function healthCheck() {
  //let randoAtk= Math.floor(Math.random() * 3);
 strikeBtn.addEventListener("click", function (event){   
     fight(1);
-    healthCheck();
     strikeCheck();
-
+    healthCheck();
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
     event.stopPropagation()
@@ -544,8 +546,8 @@ throwBtn.addEventListener("click", function (event){
 
 blockBtn.addEventListener("click", function (event){
     fight(0);
-    healthCheck();
     blockCheck();
+    healthCheck();
 
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
