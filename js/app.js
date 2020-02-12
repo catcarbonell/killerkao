@@ -110,7 +110,7 @@ const bearKao = [
     },
     { /* 9 Anti-block shenanigans */ 
         face: "ʕ ꈍᴥꈍʔ - z",
-        color: "#fbc2bc"
+        color: "#9999d9"
     }
 ]
 
@@ -291,7 +291,7 @@ function blockCheck(){
        
     } else if(blockCount > 2) {
         playerAtkFeedback.style.textAlign = "center";
-        playerAtkFeedback.innerHTML = "You didn't really do anything <br /> so Bear decided to sleep. <br /> Bear heals up. You need to fight now. >:(";
+        playerAtkFeedback.innerHTML = "You didn't really do anything. <br /> Bear decided to sleep and heal up. <br /> You need to fight now. >:(";
         
         bearBodyDiv.innerHTML = bearKao[9].face;
         bearBodyDiv.style.color = bearKao[9].color;
