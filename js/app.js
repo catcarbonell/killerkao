@@ -265,17 +265,27 @@ function strikeCheck(){
 
         playerBodyDiv.innerHTML = playerKao[2].face; 
         playerBodyDiv.style.color = playerKao[2].color;
+
         playerAtkFeedback.innerHTML = "Srsly. Stop it.";
         bearAtkFeedback.innerHTML = "";
+
+        strikeBtn.classList.add('animated', 'flash');
         strikeBtn.style.display = "none";
-        playerHpCount --
+
+        playerHpCount --;
+        strikeCount = 0;
     }
 }
 
 function blockCheck(){
-    if(blockCount > 1) {
+    if(blockCount === 3) {
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = "COME ON. FIGHT.";
+        bearAtkFeedback.innerHTML = "";
+       
+    } else if(blockCount >= 4) {
+        playerAtkFeedback.style.textAlign = "center";
+        playerAtkFeedback.innerHTML = ">:(";
         bearAtkFeedback.innerHTML = "";
         blockBtn.style.display = "none";
     }
@@ -320,8 +330,9 @@ function fight(playerAtk){
 
     } else if (playerAtk === 1 && bearAtk === 0){
         // if Player STRIKES and bear BLOCKS
-        
+        if (strikeCount < 4) {
         strikeCount++
+        }
 
         playerBodyDiv.innerHTML = playerKao[4].face;
         playerBodyDiv.style.color = playerKao[4].color;
@@ -335,7 +346,9 @@ function fight(playerAtk){
 
     } else if (playerAtk === 1 && bearAtk === 2){
         // if Player STRIKES and Bear THROWS
-        strikeCount ++
+        if (strikeCount < 4) {
+        strikeCount++
+        }
 
         playerBodyDiv.innerHTML = playerKao[4].face;
         playerBodyDiv.style.color = playerKao[4].color;
@@ -362,6 +375,7 @@ function fight(playerAtk){
         bearAtkFeedback.innerHTML = bearKao[4].status;  //strike
 
         playerHpCount--
+        strikeCount = 0;
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
 
@@ -377,7 +391,10 @@ function fight(playerAtk){
         bearBodyDiv.innerHTML = bearKao[2].face
         bearBodyDiv.style.color = bearKao[2].color
         bearAtkFeedback.innerHTML = bearKao[2].status;
+
         bearHpCount--
+        strikeCount = 0;
+        blockCount= 0;
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Bear LOSES 1 HP`)
 
@@ -392,11 +409,15 @@ function fight(playerAtk){
         playerAtkFeedback.innerHTML = playerKao[3].status;
         bearAtkFeedback.innerHTML = bearKao[3].status;
 
+        strikeCount = 0;
+
        console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- No HP lost - both block`)
     
     } else if (playerAtk === 1 && bearAtk === 1){
         // Both Strike
-        strikeCount++
+        if (strikeCount < 4) {
+            strikeCount++
+        }
 
         playerBodyDiv.innerHTML = playerKao[4].face;
         bearBodyDiv.innerHTML = bearKao[4].face
@@ -425,6 +446,9 @@ function fight(playerAtk){
 
         bearHpCount--
         playerHpCount--
+
+        strikeCount = 0;
+        blockCount = 0;
 
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} --  BOTH lose 1 HP - double throw`)
     }
