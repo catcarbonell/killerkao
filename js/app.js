@@ -228,30 +228,43 @@ closeWindow.addEventListener("click", function(event){
 
 
 
-/* HP DISPLAY */
-// Loop through an array?
-// Numbers based?
-    // if i < count; i ++ ; every i can be a health bar count -> "|"
-
+/* DISPLAY */
 let playerHpCount = 7;
 
 let bearHpCount = 7;
 
+let strikeCount = 0;
+
 // ======================================================== //
 
+
+/* STRIKE COUNT CHECK */
+
+function strikeCheck(){
+    if(strikeCount > 2){
+        playerBodyDiv.innerHTML = playerKao[2].face; 
+        playerBodyDiv.style.color = playerKao[2].color;
+        playerAtkFeedback.innerHTML = "Bear was sick of your shenanigans, so he tossed you and you couldn't do anything about it.";
+
+        bearBodyDiv.innerHTML = bearKao[5].face;
+        bearBodyDiv.style.color = bearKao[5].color;
+        bearAtkFeedback.innerHTML = "";
+
+        playerHpCount --
+    }
+}
 
 /* GAME LOGIC */
 
 function fight(playerAtk){
     //generates a number between 0 - 2
     let bearAtk = Math.floor(Math.random() * 3);
-    let strikeCount = 0;
     //console.log(`Bear ${bearAtk}`);
     //console.log(`Player ${playerAtk}`);
-    
-    if (playerAtk === 0 && bearAtk === 1){
-        // if Player BLOCKS and Bear STRIKES
+    //console.log(strikeCount + " strikes");
 
+     if (playerAtk === 0 && bearAtk === 1){
+        // if Player BLOCKS and Bear STRIKES
         playerBodyDiv.innerHTML = playerKao[3].face;
         playerBodyDiv.style.color = playerKao[3].color;
         playerAtkFeedback.innerHTML = playerKao[3].status;
@@ -278,8 +291,9 @@ function fight(playerAtk){
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
 
     } else if (playerAtk === 1 && bearAtk === 0){
-
         // if Player STRIKES and bear BLOCKS
+        
+        strikeCount++
 
         playerBodyDiv.innerHTML = playerKao[4].face;
         playerBodyDiv.style.color = playerKao[4].color;
@@ -293,6 +307,7 @@ function fight(playerAtk){
 
     } else if (playerAtk === 1 && bearAtk === 2){
         // if Player STRIKES and Bear THROWS
+        strikeCount ++
 
         playerBodyDiv.innerHTML = playerKao[4].face;
         playerBodyDiv.style.color = playerKao[4].color;
@@ -352,6 +367,8 @@ function fight(playerAtk){
     
     } else if (playerAtk === 1 && bearAtk === 1){
         // Both Strike
+        strikeCount++
+
         playerBodyDiv.innerHTML = playerKao[4].face;
         bearBodyDiv.innerHTML = bearKao[4].face
 
@@ -379,9 +396,11 @@ function fight(playerAtk){
 
         bearHpCount--
         playerHpCount--
+
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} --  BOTH lose 1 HP - double throw`)
     }
 }
+
 
 /* HP Check! */
 function healthCheck() {
@@ -447,12 +466,13 @@ function healthCheck() {
     } 
 }
 
-
 /* ATKBTN EVENT LISTENERS */
  //let randoAtk= Math.floor(Math.random() * 3);
 strikeBtn.addEventListener("click", function (event){   
     fight(1);
     healthCheck();
+    strikeCheck();
+
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
     event.stopPropagation()
