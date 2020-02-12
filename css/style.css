@@ -40,7 +40,7 @@ h1, h2 {
 }
 
 button {
-    font-size: 18px;
+    font-size: 14px;
     border: solid #333 2px;
     border-radius:5px;
     padding: 5px 20px;
@@ -157,7 +157,7 @@ text-align: center;
 
 #start {
     font-family: "Bowlby One SC", cursive;
-    font-size: 1.5em;
+    font-size: 1em;
     color: #fff;
 
     border: solid #333 2px;

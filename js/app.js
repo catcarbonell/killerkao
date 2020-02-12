@@ -286,7 +286,7 @@ function blockCheck(){
         playerAtkFeedback.innerHTML = "COME ON. FIGHT.";
         bearAtkFeedback.innerHTML = "";
        
-    } else if(blockCount >= 3) {
+    } else if(blockCount > 2) {
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = ">:(";
         bearAtkFeedback.innerHTML = "";
