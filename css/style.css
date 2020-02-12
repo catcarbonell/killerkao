@@ -74,8 +74,8 @@ footer h2 {
 }
 
 #how-to-section {
-    min-width: 350px;
-    width: 50%;
+    min-width: 300px;
+    width: 40%;
     background-color: rgba(255,255,255, 0.9);
     border: 3px solid #45b8ac;
     padding: 30px;
@@ -90,6 +90,10 @@ footer h2 {
     text-align: right;
     font-weight: 900;
 }
+#how-to-section span {
+    font-weight: 900;
+}
+
 #how-to-section p:hover {
     color: #45b8ac;
     cursor: pointer;
@@ -98,8 +102,12 @@ footer h2 {
 #how-to-section h1 {
     font-size: 2em;
 }
+#how-to-section ul {
+    min-width: 250px;
+    margin-left: 5%;
+}
 
-#how-to-section li{
+#how-to-section li {
     font-size: 12px;
     list-style-type: circle;
     line-height: 1.5em;

@@ -114,17 +114,20 @@ const outcome = [
     { //0
         state: "double-ko",
         bgcolor: "rgba(245, 166, 35, 0.9)",
-        headline: "<h2>DOUBLE KO!</h2> <p>Wow. Good job. Click here to play again!</p>"
+        headline: "<h2>DOUBLE KO!</h2>" +
+        "<p>Wow. Good job. Click here to play again!</p>"
     },
     { //1
         state: "win",
         bgcolor: "rgba(184, 233, 134, 0.9)",
-        headline: "<h2>Yay! You win!</h2> <p>Click here to play again!<p>"
+        headline: "<h2>Yay! You win!</h2>" + 
+        "<p>Click here to play again!<p>"
     },
     { //2
         state: "lose",
         bgcolor: "rgba(248, 178, 187, 0.9)",
-        headline: "<h2>Aww. You lost. RIP.</h2> <p>Click here to exact vengeance!</p>"
+        headline: "<h2>Aww. You lost. RIP.</h2>" + 
+        "<p>Click here to exact vengeance!</p>"
     }
 ]
 
@@ -208,7 +211,7 @@ howToLink.addEventListener("click", function(event){
     howToSection.classList.remove('animated', 'slideOutUp')
     howToSection.classList.add('animated', 'slideInDown')
     howToSection.style.display = "initial";
-    console.log("How to active")
+    // add toggle
     event.stopImmediatePropagation();
 });
 
@@ -216,7 +219,7 @@ closeWindow.addEventListener("click", function(event){
     howToSection.classList.remove('animated', 'slideInDown')
     howToSection.classList.add('animated', 'fast', 'fadeOutUp')
    // howToSection.style.display = "none";
-    console.log("How to closed")
+    
     event.stopImmediatePropagation();
 });
 
@@ -399,8 +402,6 @@ function healthCheck() {
         bearBodyDiv.innerHTML = bearKao[6].face;
         bearBodyDiv.classList.add('animated', 'tada')
         bearBodyDiv.style.color= "#ccc";
-       
-
 
     } else if(bearHpCount <= 0) {
         // Player Win
@@ -455,7 +456,6 @@ strikeBtn.addEventListener("click", function (event){
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
     event.stopPropagation()
-
 });
 
 throwBtn.addEventListener("click", function (event){
