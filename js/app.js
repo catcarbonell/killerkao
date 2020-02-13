@@ -20,6 +20,22 @@ function aniLoop (anivar) {
     }
 }
 
+/* ANIMATION LIBRARY */
+const aniDmg = [
+    'tada', 'wobble', 'swing'
+]
+
+const aniAtk = [
+    'bounce', 'shake', 'heartBeat'
+]
+
+const aniBlock = [
+    'pulse', 'rubberBand'
+]
+
+
+// ======================================================== //
+
 /* FACE LIBRARY */
 
 // Player
@@ -141,25 +157,7 @@ const bearKao = [
     }
 ]
 
-
 // ======================================================== //
-
-/* ANIMATION LIBRARY */
-const aniDmg = [
-    'tada', 'wobble', 'swing'
-]
-
-const aniAtk = [
-    'bounce', 'shake', 'heartBeat'
-]
-
-const aniBlock = [
-    'pulse', 'rubberBand'
-]
-
-
-// ======================================================== //
-
 
 /* OUTCOME LIBRARY */
 const outcome = [
@@ -613,16 +611,9 @@ function healthCheck() {
 /* ATKBTN EVENT LISTENERS */
  //let randoAtk= Math.floor(Math.random() * 3);
 strikeBtn.addEventListener("click", function (event){  
-
-  
-   // aniRemove(playerBodyDiv);
-    // aniRemove(bearBodyDiv);
-
-    fight(1);
-    
+    fight(1);    
     strikeCheck();
     healthCheck();
-
 
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
@@ -631,31 +622,22 @@ strikeBtn.addEventListener("click", function (event){
 });
 
 throwBtn.addEventListener("click", function (event){
-   // aniRemove(playerBodyDiv);
-    //aniRemove(bearBodyDiv);
-
     fight(2);
-
     healthCheck();
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
 
-
-
     event.stopPropagation()
-
 });
 
 blockBtn.addEventListener("click", function (event){
-    //aniRemove(playerBodyDiv);
-    //aniRemove(bearBodyDiv);
-
     fight(0);
     blockCheck();
     healthCheck();
 
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
+
     event.stopPropagation()
 
 });
