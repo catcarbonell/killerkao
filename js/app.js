@@ -8,11 +8,10 @@ function addAnimated (anidiv, action){
     if (targetDiv.contains('animated')) {
        targetDiv.remove('flash', 'flip', 'tada', 'bounce', 'pulse', 'rubberBand', 'heartBeat');
        targetDiv.add(action);
-    }
-      else {
+    } else {
         targetDiv.add(action);
       }
-      console.log(anidiv);
+      //console.log(anidiv);
 }
 
 function aniLoop (anivar) {
