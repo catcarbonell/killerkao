@@ -47,7 +47,7 @@ button {
 }
 
 footer {
-    margin-top: 5%;
+    margin-top: 75px;
     font-size: 12px;
     letter-spacing: 1px;
     text-align: center;
@@ -270,9 +270,11 @@ text-align: center;
 /* <DIV> - #ARENA - </DIV> */
 
 #arena-section {
+   
     min-width: 300px;
     width: 40%;
     margin: 20px auto;
+    padding: 20px 0;
     color: #333;
 
     display: flex;
@@ -318,5 +320,9 @@ text-align: center;
     .character {
         width: 30%;
         font-size: 20px;
+    }
+
+    footer {
+        margin-top: 50px;
     }
 } 

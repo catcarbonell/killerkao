@@ -1,5 +1,21 @@
 console.log("ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵　しʕ•ᴥ•し  ʔ");
 
+/* AnimateCSS Stuff 
+
+function addAnimated (anidiv, action){
+    //anidiv.classList.toggle();
+    if (anidiv.classList.contains(action)) {
+        anidiv.classList.remove(action);
+      } else {
+        anidiv.classList.add(action);
+      }
+      console.log(anidiv);
+
+    // Need to remove the action after so it can be reinstated when the action is selected again 
+}*/
+
+
+
 /* FACE LIBRARY */
 
 // Player
@@ -51,6 +67,9 @@ const playerKao = [
         status: "You Win!",
         face: "( •̀ᄇ• ́)ﻭ✧",
         color: "#333"
+    },
+    { /* Arm Eaten */
+        face: "( १д१)"
     }
 ]
 
@@ -111,6 +130,10 @@ const bearKao = [
     { /* 9 Anti-block shenanigans */ 
         face: "ʕ ꈍᴥꈍʔ - z",
         color: "#9999d9"
+    },
+    { /* 10 Eat arm */
+        face: "ʕ•̀д•́ꐦʔ",
+        color: "#FF4CEE"
     }
 ]
 
@@ -211,7 +234,7 @@ startBtn.addEventListener("click", function(event){
 /* RESET */
 resetBanner.addEventListener("click", function(event) {
     document.location.reload(true)
-    event.stopPropagation();    
+     
 });
 
 /* HOW TO SECTION */
@@ -235,20 +258,18 @@ closeWindow.addEventListener("click", function(event){
 // ======================================================== //
 
 
-
 /* DISPLAY */
 let playerHpCount = 7;
-
 let bearHpCount = 7;
-
 let strikeCount = 0;
 let blockCount = 0;
+
+
 // ======================================================== //
 
 
 /* STRIKE COUNT CHECK */
-// Anti-spamming block or strike section
-
+// NO SPAMMING STRIKE
 function strikeCheck(){
     if(strikeCount === 3){
         playerBodyDiv.innerHTML = playerKao[2].face; 
@@ -264,10 +285,10 @@ function strikeCheck(){
         console.log("Strikes: " + strikeCount)
 
     } else if(strikeCount >= 4) {
-        bearBodyDiv.innerHTML = bearKao[8].face;
-        bearBodyDiv.style.color = bearKao[8].color;
+        bearBodyDiv.innerHTML = bearKao[10].face;
+        bearBodyDiv.style.color = bearKao[10].color;
 
-        playerBodyDiv.innerHTML = playerKao[2].face; 
+        playerBodyDiv.innerHTML = playerKao[8].face; 
         playerBodyDiv.style.color = playerKao[2].color;
 
         playerAtkFeedback.innerHTML = "The bear ate your punching arm. >:(";
@@ -282,14 +303,14 @@ function strikeCheck(){
 }
 
 /* BLOCK COUNT CHECK */
-
+// NO SPAMMING BLOCK
 function blockCheck(){
     if(blockCount === 2) {
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = "COME ON. FIGHT.";
         bearAtkFeedback.innerHTML = "";
        
-    } else if(blockCount > 2) {
+    } else if(blockCount >= 2) {
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = "You didn't really do anything. <br /> Bear decided to sleep and heal up. <br /> You need to fight now. >:(";
         
@@ -309,13 +330,15 @@ function fight(playerAtk){
 
      if (playerAtk === 0 && bearAtk === 1){
         // if Player BLOCKS and Bear STRIKES
+        addAnimated(playerBodyDiv, 'bounce');
+
         blockCount++; 
-        
+
         playerBodyDiv.innerHTML = playerKao[3].face;
         playerBodyDiv.style.color = playerKao[3].color;
         playerAtkFeedback.innerHTML = playerKao[3].status;
 
-        bearBodyDiv.innerHTML = bearKao[4].face
+        bearBodyDiv.innerHTML = bearKao[4].face;
         bearBodyDiv.style.color = bearKao[4].color;
         bearAtkFeedback.innerHTML = bearKao[4].status;
 
@@ -323,6 +346,7 @@ function fight(playerAtk){
 
     } else if (playerAtk === 0 && bearAtk === 2){
         // if Player BLOCKS && Bear THROWS
+        addAnimated(playerBodyDiv, 'jello');
 
         playerBodyDiv.innerHTML = playerKao[2].face; 
         playerBodyDiv.style.color = playerKao[2].color;
@@ -338,6 +362,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 1 && bearAtk === 0){
         // if Player STRIKES and bear BLOCKS
+        addAnimated(playerBodyDiv, 'bounce');
+
         if (strikeCount < 4) {
         strikeCount++
         }
@@ -355,6 +381,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 1 && bearAtk === 2){
         // if Player STRIKES and Bear THROWS
+        addAnimated(playerBodyDiv, 'bounce');
+
         if (strikeCount < 4) {
         strikeCount++
         }
@@ -372,8 +400,8 @@ function fight(playerAtk){
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Bear LOSES 1 HP`)
 
     } else if (playerAtk === 2 && bearAtk === 1) {
-
         // if Player THROWS and Bear STRIKES
+        addAnimated(playerBodyDiv, 'bounce');
 
         playerBodyDiv.innerHTML = playerKao[1].face; 
         playerBodyDiv.style.color = playerKao[1].color;
@@ -390,8 +418,8 @@ function fight(playerAtk){
         console.log(`Bear HP: ${bearHpCount} vs. HP: ${playerHpCount} -- Player LOSES 1 HP`)
 
     } else if (playerAtk === 2 && bearAtk === 0){
-
         // if Player THROWS and Bear BLOCKS
+        addAnimated(playerBodyDiv, 'bounce');
 
         playerBodyDiv.innerHTML = playerKao[5].face;
         playerBodyDiv.style.color = playerKao[5].color;
@@ -410,6 +438,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 0 && bearAtk === 0){
         // Both Block
+        addAnimated(playerBodyDiv, 'bounce');
+
         blockCount++; 
         playerBodyDiv.innerHTML = playerKao[3].face;
         bearBodyDiv.innerHTML = bearKao[3].face
@@ -423,6 +453,8 @@ function fight(playerAtk){
     
     } else if (playerAtk === 1 && bearAtk === 1){
         // Both Strike
+        addAnimated(playerBodyDiv, 'bounce');
+
         if (strikeCount < 4) {
             strikeCount++
         }
@@ -443,6 +475,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 2 && bearAtk === 2){
         // Both Throw
+        addAnimated(playerBodyDiv, 'shake');
+
         playerBodyDiv.innerHTML = playerKao[5].face;
         bearBodyDiv.innerHTML = bearKao[5].face
 
@@ -530,16 +564,21 @@ function healthCheck() {
 
 /* ATKBTN EVENT LISTENERS */
  //let randoAtk= Math.floor(Math.random() * 3);
-strikeBtn.addEventListener("click", function (event){   
+strikeBtn.addEventListener("click", function (event){  
+
+  
+
     fight(1);
     strikeCheck();
     healthCheck();
+    
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
     event.stopPropagation()
 });
 
 throwBtn.addEventListener("click", function (event){
+
     fight(2);
     healthCheck();
     playerHpSpan.innerHTML = playerHpCount;
@@ -550,6 +589,7 @@ throwBtn.addEventListener("click", function (event){
 });
 
 blockBtn.addEventListener("click", function (event){
+
     fight(0);
     blockCheck();
     healthCheck();
