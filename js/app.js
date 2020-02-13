@@ -4,16 +4,28 @@ console.log("ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵　しʕ•ᴥ•し  ʔ");
 
 function addAnimated (anidiv, action){
     //anidiv.classList.toggle();
-    if (anidiv.classList.contains(action)) {
-        anidiv.classList.remove(action);
-      } else {
-        anidiv.classList.add(action);
+    let targetDiv = anidiv.classList;
+    if (targetDiv.contains(action) && targetDiv.length > 2 ) {
+       targetDiv.remove(action);
+
+        //targetDiv.replace(action, action)
+    }
+        //targetDiv.add(action);
+        //promise to add action after!
+      else {
+        targetDiv.add(action);
       }
       console.log(anidiv);
 
     // Need to remove the action after so it can be reinstated when the action is selected again 
 }
-
+// Loop through animations?
+function aniLoop (anivar) {
+    for (i in anivar){
+        
+        return anivar[i];
+    }
+}
 
 
 /* FACE LIBRARY */
@@ -140,6 +152,23 @@ const bearKao = [
 
 // ======================================================== //
 
+/* ANIMATION LIBRARY */
+const aniDmg = [
+    'tada', 'wobble', 'swing'
+]
+
+const aniAtk = [
+    'bounce', 'shake', 'heartBeat'
+]
+
+const aniBlock = [
+    'pulse', 'rubberBand'
+]
+
+
+// ======================================================== //
+
+
 /* OUTCOME LIBRARY */
 const outcome = [
     { //0
@@ -209,19 +238,22 @@ playerBodySpan.innerHTML = playerKao[0].face;
 bearBodySpan.innerHTML = bearKao[0].face;
 
 startBtn.addEventListener("click", function(event){
-    startBtn.classList.add('animated', 'fadeOutUp')
+    startBtn.classList.add('animated', 'fadeOutUp');
     startBtn.style.display = "none";
 
-    title.classList.add('animated', 'slideInUp')
+    title.classList.add('animated', 'slideInUp');
     title.style.fontSize = "20px";
 
-    atkMenu.classList.add('animated', 'slideInUp')
+    atkMenu.classList.add('animated', 'slideInUp');
     atkMenu.style.display = "initial";
 
-    hpBars.classList.add('animated', 'slideInDown' )
+    hpBars.classList.add('animated', 'slideInDown' );
     hpBars.style.display = "flex";
 
-    arenaDiv.classList.add('animated', 'slideInDown')
+    howToLink.classList.add('animated', 'fadeOutDown');
+    howToLink.style.display = "none";
+
+    arenaDiv.classList.add('animated', 'slideInDown');
 
     //vs.classList.add('animated', 'fadeOutUp')
     vs.style.color = "#ccc";
@@ -231,7 +263,7 @@ startBtn.addEventListener("click", function(event){
 
 /* RESET */
 resetBanner.addEventListener("click", function(event) {
-    document.location.reload(true)
+    document.location.reload(true);
      
 });
 
@@ -270,18 +302,26 @@ let blockCount = 0;
 // NO SPAMMING STRIKE
 function strikeCheck(){
     if(strikeCount === 3){
+        addAnimated(playerBodyDiv, aniLoop(aniDmg));
+        addAnimated(bearBodyDiv, aniLoop(aniAtk));
+
         playerBodyDiv.innerHTML = playerKao[2].face; 
         playerBodyDiv.style.color = playerKao[2].color;
+
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = "Bear was sick of your shenanigans,<br /> so he tossed you and <br /> you couldn't do anything about it.";
 
         bearBodyDiv.innerHTML = bearKao[8].face;
         bearBodyDiv.style.color = bearKao[8].color;
+
         bearAtkFeedback.innerHTML = "";
 
         playerHpCount --
 
     } else if(strikeCount >= 4) {
+        addAnimated(playerBodyDiv, aniLoop(aniDmg));
+        addAnimated(bearBodyDiv, aniLoop(aniAtk));
+
         bearBodyDiv.innerHTML = bearKao[10].face;
         bearBodyDiv.style.color = bearKao[10].color;
 
@@ -303,18 +343,28 @@ function strikeCheck(){
 // NO SPAMMING BLOCK
 function blockCheck(){
     if(blockCount === 2) {
+        addAnimated(playerBodyDiv, aniLoop(aniBlock));
+        addAnimated(bearBodyDiv, aniLoop(aniAtk));
+
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = "COME ON. FIGHT.";
+
         bearAtkFeedback.innerHTML = "";
        
-    } else if(blockCount >= 2) {
+    } else if(blockCount > 2) {
+        addAnimated(playerBodyDiv, aniLoop(aniBlock));
+        addAnimated(bearBodyDiv, 'flash');
+
         playerAtkFeedback.style.textAlign = "center";
         playerAtkFeedback.innerHTML = "You didn't really do anything. <br /> Bear decided to sleep and heal up. <br /> You need to fight now. >:(";
         
         bearBodyDiv.innerHTML = bearKao[9].face;
         bearBodyDiv.style.color = bearKao[9].color;
+
         bearAtkFeedback.innerHTML = "";
+
         blockBtn.style.display = "none";
+
         bearHpCount = 7;
     }
 }
@@ -327,7 +377,8 @@ function fight(playerAtk){
 
      if (playerAtk === 0 && bearAtk === 1){
         // if Player BLOCKS and Bear STRIKES
-        addAnimated(playerBodyDiv, 'bounce');
+        addAnimated(playerBodyDiv, aniLoop(aniBlock));
+        addAnimated(bearBodyDiv, aniLoop(aniAtk));
 
         blockCount++; 
 
@@ -343,7 +394,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 0 && bearAtk === 2){
         // if Player BLOCKS && Bear THROWS
-        addAnimated(playerBodyDiv, 'jello');
+        addAnimated(playerBodyDiv, aniLoop(aniDmg));
+        addAnimated(bearBodyDiv, aniLoop(aniAtk));
 
         playerBodyDiv.innerHTML = playerKao[2].face; 
         playerBodyDiv.style.color = playerKao[2].color;
@@ -359,7 +411,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 1 && bearAtk === 0){
         // if Player STRIKES and bear BLOCKS
-        addAnimated(playerBodyDiv, 'bounce');
+        addAnimated(playerBodyDiv, aniLoop(aniAtk));
+        addAnimated(bearBodyDiv, aniLoop(aniBlock));
 
         if (strikeCount < 4) {
         strikeCount++
@@ -378,7 +431,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 1 && bearAtk === 2){
         // if Player STRIKES and Bear THROWS
-        addAnimated(playerBodyDiv, 'bounce');
+        addAnimated(playerBodyDiv, aniLoop(aniAtk));
+        addAnimated(bearBodyDiv, aniLoop(aniDmg));
 
         if (strikeCount < 4) {
         strikeCount++
@@ -398,7 +452,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 2 && bearAtk === 1) {
         // if Player THROWS and Bear STRIKES
-        addAnimated(playerBodyDiv, 'bounce');
+        addAnimated(playerBodyDiv, aniLoop(aniDmg));
+        addAnimated(bearBodyDiv, aniLoop(aniAtk));
 
         playerBodyDiv.innerHTML = playerKao[1].face; 
         playerBodyDiv.style.color = playerKao[1].color;
@@ -416,7 +471,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 2 && bearAtk === 0){
         // if Player THROWS and Bear BLOCKS
-        addAnimated(playerBodyDiv, 'bounce');
+        addAnimated(playerBodyDiv, aniLoop(aniAtk));
+        addAnimated(bearBodyDiv, aniLoop(aniDmg));
 
         playerBodyDiv.innerHTML = playerKao[5].face;
         playerBodyDiv.style.color = playerKao[5].color;
@@ -435,7 +491,8 @@ function fight(playerAtk){
 
     } else if (playerAtk === 0 && bearAtk === 0){
         // Both Block
-        addAnimated(playerBodyDiv, 'bounce');
+        addAnimated(playerBodyDiv, aniLoop(aniBlock));
+        addAnimated(bearBodyDiv, aniLoop(aniBlock));
 
         blockCount++; 
         playerBodyDiv.innerHTML = playerKao[3].face;
@@ -450,7 +507,8 @@ function fight(playerAtk){
     
     } else if (playerAtk === 1 && bearAtk === 1){
         // Both Strike
-        addAnimated(playerBodyDiv, 'bounce');
+        addAnimated(playerBodyDiv, aniLoop(aniDmg));
+        addAnimated(bearBodyDiv, aniLoop(aniDmg));
 
         if (strikeCount < 4) {
             strikeCount++
@@ -472,10 +530,11 @@ function fight(playerAtk){
 
     } else if (playerAtk === 2 && bearAtk === 2){
         // Both Throw
-        addAnimated(playerBodyDiv, 'shake');
+        addAnimated(playerBodyDiv, 'flip');
+        addAnimated(bearBodyDiv, 'flip');
 
-        playerBodyDiv.innerHTML = playerKao[5].face;
-        bearBodyDiv.innerHTML = bearKao[5].face
+        playerBodyDiv.innerHTML = playerKao[2].face;
+        bearBodyDiv.innerHTML = bearKao[2].face
 
         playerBodyDiv.style.color = playerKao[1].color;
         bearBodyDiv.style.color = bearKao[1].color;
