@@ -1,6 +1,6 @@
 console.log("ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵　しʕ•ᴥ•し  ʔ");
 
-/* AnimateCSS Stuff 
+/* AnimateCSS Stuff */
 
 function addAnimated (anidiv, action){
     //anidiv.classList.toggle();
@@ -12,7 +12,7 @@ function addAnimated (anidiv, action){
       console.log(anidiv);
 
     // Need to remove the action after so it can be reinstated when the action is selected again 
-}*/
+}
 
 
 
@@ -282,7 +282,6 @@ function strikeCheck(){
         bearAtkFeedback.innerHTML = "";
 
         playerHpCount --
-        console.log("Strikes: " + strikeCount)
 
     } else if(strikeCount >= 4) {
         bearBodyDiv.innerHTML = bearKao[10].face;
