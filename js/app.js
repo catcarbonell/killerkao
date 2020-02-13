@@ -5,28 +5,21 @@ console.log("ʕノ•ᴥ•ʔノ ︵ ┻━┻  ︵　しʕ•ᴥ•し  ʔ");
 function addAnimated (anidiv, action){
     //anidiv.classList.toggle();
     let targetDiv = anidiv.classList;
-    if (targetDiv.contains(action) && targetDiv.length > 2 ) {
-       targetDiv.remove(action);
-
-        //targetDiv.replace(action, action)
+    if (targetDiv.contains('animated')) {
+       targetDiv.remove('flash', 'flip', 'tada', 'bounce', 'pulse', 'rubberBand', 'heartBeat');
+       targetDiv.add(action);
     }
-        //targetDiv.add(action);
-        //promise to add action after!
       else {
         targetDiv.add(action);
       }
       console.log(anidiv);
-
-    // Need to remove the action after so it can be reinstated when the action is selected again 
 }
-// Loop through animations?
+
 function aniLoop (anivar) {
     for (i in anivar){
-        
         return anivar[i];
     }
 }
-
 
 /* FACE LIBRARY */
 
@@ -623,28 +616,40 @@ function healthCheck() {
 strikeBtn.addEventListener("click", function (event){  
 
   
+   // aniRemove(playerBodyDiv);
+    // aniRemove(bearBodyDiv);
 
     fight(1);
+    
     strikeCheck();
     healthCheck();
-    
+
+
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
+
     event.stopPropagation()
 });
 
 throwBtn.addEventListener("click", function (event){
+   // aniRemove(playerBodyDiv);
+    //aniRemove(bearBodyDiv);
 
     fight(2);
+
     healthCheck();
     playerHpSpan.innerHTML = playerHpCount;
     bearHpSpan.innerHTML = bearHpCount;
+
+
 
     event.stopPropagation()
 
 });
 
 blockBtn.addEventListener("click", function (event){
+    //aniRemove(playerBodyDiv);
+    //aniRemove(bearBodyDiv);
 
     fight(0);
     blockCheck();
