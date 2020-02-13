@@ -4,11 +4,6 @@
 the predecessor to Emojis! 
 * "Kao" (顔 - KAH-oh -- like "cow" ) means "face" in Japanese!
 
-## *GASP!* You have encountered a BEAR (ʕ•ᴥ• ʔ). What do you do?
-* Fight it?
-* Throw it?
-* Block its hits?
-
 ## Gameplay:
 * Player starts game by pressing the big red "START" button in the middle
 * Player chooses an action from the buttons below:
@@ -27,7 +22,7 @@ the predecessor to Emojis!
     * https://trello.com/b/HIrHREo4/killer-kao
 
 
-## Want to modify this app? Add a kaomoji? 
+## Want to modify this app? Add a kaomoji library? 
 * Feel free to fork this repo!
 
 ## Keep In Touch!

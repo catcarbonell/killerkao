@@ -277,19 +277,17 @@ closeWindow.addEventListener("click", function(event){
 
 // ======================================================== //
 
-
 /* DISPLAY */
 let playerHpCount = 7;
 let bearHpCount = 7;
 let strikeCount = 0;
 let blockCount = 0;
-
+let throwCount = 0;
 
 // ======================================================== //
 
 
 /* STRIKE COUNT CHECK */
-// NO SPAMMING STRIKE
 function strikeCheck(){
     if(strikeCount === 3){
         addAnimated(playerBodyDiv, aniLoop(aniDmg));
@@ -330,7 +328,6 @@ function strikeCheck(){
 }
 
 /* BLOCK COUNT CHECK */
-// NO SPAMMING BLOCK
 function blockCheck(){
     if(blockCount === 2) {
         addAnimated(playerBodyDiv, aniLoop(aniBlock));
@@ -359,8 +356,78 @@ function blockCheck(){
     }
 }
 
-/* MAIN GAME LOGIC */
+/* THROW COUNT CHECK */
+function throwCheck(){
+}
 
+/* HP CHECK */
+function healthCheck() {
+    if(playerHpCount <= 0 && bearHpCount <= 0){
+        // Double KO
+        resetBanner.classList.add('animated', 'slideInDown')
+        resetBanner.style.display = "initial";
+        resetBanner.style.background = outcome[0].bgcolor;
+        resetBanner.innerHTML = outcome[0].headline
+
+        atkMenu.classList.add('animated', 'slideOutDown')
+        atkMenu.style.display = "none"
+
+        playerBodyDiv.innerHTML = playerKao[6].face;
+        playerBodyDiv.classList.add('animated', 'shake')
+        playerBodyDiv.style.color= "#ccc";
+
+        bearBodyDiv.innerHTML = bearKao[6].face;
+        bearBodyDiv.classList.add('animated', 'tada')
+        bearBodyDiv.style.color= "#ccc";
+
+        playerAtkFeedback.innerHTML = "lol."
+        bearAtkFeedback.innerHTML = "RIP."
+
+    } else if(bearHpCount <= 0) {
+        // Player Win
+        resetBanner.classList.add('animated', 'slideInDown')
+        resetBanner.style.display = "initial";
+        resetBanner.style.background = outcome[1].bgcolor;
+        resetBanner.innerHTML = outcome[1].headline
+
+        atkMenu.classList.add('animated', 'slideOutDown')
+        atkMenu.style.display = "none"
+
+        playerBodyDiv.classList.add('animated', 'bounce')
+        playerBodyDiv.innerHTML = playerKao[7].face;
+        playerAtkFeedback.innerHTML = playerKao[7].status;
+        
+
+        bearBodyDiv.innerHTML = bearKao[6].face;
+        bearBodyDiv.classList.add('animated', 'flash')
+        bearBodyDiv.style.color= bearKao[6].color;
+        bearAtkFeedback.innerHTML = bearKao[6].status;
+
+    } else if(playerHpCount <= 0) {
+        // Player Lose
+        resetBanner.classList.add('animated', 'slideInDown')
+        resetBanner.style.display = "initial";
+        resetBanner.style.background = outcome[2].bgcolor;
+        resetBanner.innerHTML = outcome[2].headline
+
+        atkMenu.classList.add('animated', 'slideOutDown')
+        atkMenu.style.display = "none"
+
+        playerBodyDiv.innerHTML = playerKao[6].face;
+        playerBodyDiv.classList.add('animated', 'hinge')
+        playerBodyDiv.style.color= playerKao[6].color;
+        playerAtkFeedback.innerHTML = playerKao[6].status;
+
+
+        bearBodyDiv.classList.add('animated', 'bounce')
+        bearBodyDiv.innerHTML = bearKao[7].face;
+        bearAtkFeedback.innerHTML = bearKao[7].status;
+    } 
+}
+
+// ======================================================== //
+
+/* MAIN GAME LOGIC */
 function fight(playerAtk){
     //generates a number between 0 - 2
     let bearAtk = Math.floor(Math.random() * 3);
@@ -542,71 +609,7 @@ function fight(playerAtk){
     }
 }
 
-
-/* HP Check! */
-function healthCheck() {
-    if(playerHpCount <= 0 && bearHpCount <= 0){
-        // Double KO
-        resetBanner.classList.add('animated', 'slideInDown')
-        resetBanner.style.display = "initial";
-        resetBanner.style.background = outcome[0].bgcolor;
-        resetBanner.innerHTML = outcome[0].headline
-
-        atkMenu.classList.add('animated', 'slideOutDown')
-        atkMenu.style.display = "none"
-
-        playerBodyDiv.innerHTML = playerKao[6].face;
-        playerBodyDiv.classList.add('animated', 'shake')
-        playerBodyDiv.style.color= "#ccc";
-
-        bearBodyDiv.innerHTML = bearKao[6].face;
-        bearBodyDiv.classList.add('animated', 'tada')
-        bearBodyDiv.style.color= "#ccc";
-
-        playerAtkFeedback.innerHTML = "lol."
-        bearAtkFeedback.innerHTML = "RIP."
-
-    } else if(bearHpCount <= 0) {
-        // Player Win
-        resetBanner.classList.add('animated', 'slideInDown')
-        resetBanner.style.display = "initial";
-        resetBanner.style.background = outcome[1].bgcolor;
-        resetBanner.innerHTML = outcome[1].headline
-
-        atkMenu.classList.add('animated', 'slideOutDown')
-        atkMenu.style.display = "none"
-
-        playerBodyDiv.classList.add('animated', 'bounce')
-        playerBodyDiv.innerHTML = playerKao[7].face;
-        playerAtkFeedback.innerHTML = playerKao[7].status;
-        
-
-        bearBodyDiv.innerHTML = bearKao[6].face;
-        bearBodyDiv.classList.add('animated', 'flash')
-        bearBodyDiv.style.color= bearKao[6].color;
-        bearAtkFeedback.innerHTML = bearKao[6].status;
-
-    } else if(playerHpCount <= 0) {
-        // Player Lose
-        resetBanner.classList.add('animated', 'slideInDown')
-        resetBanner.style.display = "initial";
-        resetBanner.style.background = outcome[2].bgcolor;
-        resetBanner.innerHTML = outcome[2].headline
-
-        atkMenu.classList.add('animated', 'slideOutDown')
-        atkMenu.style.display = "none"
-
-        playerBodyDiv.innerHTML = playerKao[6].face;
-        playerBodyDiv.classList.add('animated', 'hinge')
-        playerBodyDiv.style.color= playerKao[6].color;
-        playerAtkFeedback.innerHTML = playerKao[6].status;
-
-
-        bearBodyDiv.classList.add('animated', 'bounce')
-        bearBodyDiv.innerHTML = bearKao[7].face;
-        bearAtkFeedback.innerHTML = bearKao[7].status;
-    } 
-}
+// ======================================================== //
 
 /* ATKBTN EVENT LISTENERS */
  //let randoAtk= Math.floor(Math.random() * 3);
@@ -641,6 +644,9 @@ blockBtn.addEventListener("click", function (event){
     event.stopPropagation()
 
 });
+
+// ======================================================== //
+
 
  //HP BAR DISPLAY 
 playerHpSpan.innerHTML = playerHpCount;
