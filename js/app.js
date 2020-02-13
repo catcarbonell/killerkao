@@ -199,9 +199,7 @@ const bearBodySpan = document.getElementById("bear-body");
 const bearHpSpan = document.getElementById("bear-hp");
 
 
-
 // ======================================================== //
-
 
 
 /* GAME INIT */
