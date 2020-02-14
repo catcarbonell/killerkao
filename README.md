@@ -20,6 +20,9 @@ the predecessor to Emojis!
 * The faces are stored in an object array, which is retrieved via document.eventListeners!
 * Here's the Trello board if you're curious about my process and what's coming up next:
     * https://trello.com/b/HIrHREo4/killer-kao
+    
+## Wireframes
+![My designs for the app](https://github.com/catcarbonell/killerkao/blob/master/assets/killerkao-wf.png?raw=true)
 
 
 ## Want to modify this app? Add a kaomoji library? 
